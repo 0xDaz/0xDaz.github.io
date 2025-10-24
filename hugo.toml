@@ -4,9 +4,13 @@ title = '0xDaz.github.io'
 theme = 'PaperMod'
 
 [params]
+  mainSections = ["ai", "env"]
   env = 'production'
   description = 'Development blog'
   author = '0xDaz'
+
+  # Disable profile mode for consistent post layout
+  disableSpecial1stPost = true
 
   # Show reading time
   showReadingTime = true
@@ -23,11 +27,6 @@ theme = 'PaperMod'
   # Show code copy button
   showCodeCopyButtons = true
 
-  # Home page settings
-  [params.homeInfoParams]
-    Title = "Hello"
-    Content = "GameDevLog xD"
-
   # Social icons
   [[params.socialIcons]]
     name = "github"
@@ -35,22 +34,16 @@ theme = 'PaperMod'
 
 # Menu
 [[menu.main]]
-  identifier = "posts"
-  name = "Posts"
-  url = "/posts/"
-  weight = 10
+  identifier = "categories"
+  name = "Categories"
+  url = "/categories/"
+  weight = 5
 
 [[menu.main]]
   identifier = "tags"
   name = "Tags"
   url = "/tags/"
-  weight = 20
-
-[[menu.main]]
-  identifier = "archives"
-  name = "Archives"
-  url = "/archives/"
-  weight = 30
+  weight = 10
 
 # Enable syntax highlighting
 [markup]

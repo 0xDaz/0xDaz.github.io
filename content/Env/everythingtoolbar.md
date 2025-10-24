@@ -1,6 +1,6 @@
 ---
-title: "Windows 빠른 실행 툴바 - EverythingToolbar"
-date: 2025-10-24
+title: "EverythingToolbar"
+date: 2025-10-24T09:00:00+09:00
 tags: ["Windows", "Tool", "Productivity", "Raycast", "EverythingToolbar"]
 categories: ["Env"]
 draft: false
