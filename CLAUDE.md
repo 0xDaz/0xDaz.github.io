@@ -44,12 +44,18 @@
 ```yaml
 ---
 title: "포스트 제목"
-date: YYYY-MM-DD
+date: YYYY-MM-DDTHH:MM:SS+09:00
 tags: ["Tag1", "Tag2", "Tag3"]
 categories: ["Category"]
 draft: false
 ---
 ```
+
+**날짜/시간 작성 규칙:**
+- 형식: `YYYY-MM-DDTHH:MM:SS+09:00` (ISO 8601)
+- **반드시 현재 시간 또는 과거 시간 사용**
+- 미래 시간 사용 시 Hugo에서 포스트가 표시되지 않음
+- 예시: `2025-10-25T01:30:00+09:00`
 
 **태그 작성 원칙:**
 - 관련된 툴/기술명을 구체적으로 포함
