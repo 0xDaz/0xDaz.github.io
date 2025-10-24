@@ -1,12 +1,12 @@
 baseURL = 'https://0xDaz.github.io/'
 languageCode = 'ko'
-title = '0xDaz Blog'
+title = '0xDaz.github.io'
 theme = 'PaperMod'
 
 [params]
   env = 'production'
   description = 'Development blog'
-  author = '0xD'
+  author = '0xDaz'
 
   # Show reading time
   showReadingTime = true
@@ -25,8 +25,8 @@ theme = 'PaperMod'
 
   # Home page settings
   [params.homeInfoParams]
-    Title = "0xDaz.github.io"
-    Content = "GameDevLog"
+    Title = "Hello"
+    Content = "GameDevLog xD"
 
   # Social icons
   [[params.socialIcons]]
