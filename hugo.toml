@@ -1,0 +1,59 @@
+baseURL = 'https://0xD.github.io/'
+languageCode = 'ko'
+title = '0xD Blog'
+theme = 'PaperMod'
+
+[params]
+  env = 'production'
+  description = 'Development blog'
+  author = '0xD'
+
+  # Show reading time
+  showReadingTime = true
+
+  # Show share buttons
+  showShareButtons = true
+
+  # Show table of contents
+  showToc = true
+
+  # Show breadcrumbs
+  showBreadCrumbs = true
+
+  # Show code copy button
+  showCodeCopyButtons = true
+
+  # Home page settings
+  [params.homeInfoParams]
+    Title = "Welcome to 0xD Blog"
+    Content = "Development & Technology Blog"
+
+  # Social icons
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/0xD"
+
+# Menu
+[[menu.main]]
+  identifier = "posts"
+  name = "Posts"
+  url = "/posts/"
+  weight = 10
+
+[[menu.main]]
+  identifier = "tags"
+  name = "Tags"
+  url = "/tags/"
+  weight = 20
+
+[[menu.main]]
+  identifier = "archives"
+  name = "Archives"
+  url = "/archives/"
+  weight = 30
+
+# Enable syntax highlighting
+[markup]
+  [markup.highlight]
+    style = 'monokai'
+    lineNos = true
