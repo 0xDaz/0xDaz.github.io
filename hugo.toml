@@ -25,8 +25,8 @@ theme = 'PaperMod'
 
   # Home page settings
   [params.homeInfoParams]
-    Title = "Welcome to 0xD Blog"
-    Content = "Development & Technology Blog"
+    Title = "0xDaz.github.io"
+    Content = "GameDevLog"
 
   # Social icons
   [[params.socialIcons]]
