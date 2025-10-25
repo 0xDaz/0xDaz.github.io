@@ -213,6 +213,115 @@ task-master move --from=5 --from-tag=backlog --to-tag=in-progress
 task-master move --from=5,6,7 --from-tag=backlog --to-tag=done --with-dependencies
 ```
 
+## 실제 사용 예시
+
+DNDLite 유니티 프로젝트에서의 작업 관리 사례:
+
+```
+> Task Master 작업 상태 보여줘
+
+● Task Master의 현재 작업 상태를 확인하겠습니다.
+
+● task-master-ai - get_tasks (MCP)(projectRoot: "C:\\Dev\\DNDLite", withSubtasks: true)
+  ⎿  {
+       "data": {
+         "tasks": [
+     … +442 lines (ctrl+o to expand)
+
+● Task Master 작업 상태
+
+  📊 전체 진행률
+
+  - 완료: 4/30 tasks (13.3%)
+  - 진행 중: 0
+  - 대기 중: 26
+  - 서브태스크: 5/5 완료 (100%)
+
+  ✅ 완료된 작업
+
+  Task 1: Setup Unity Project Structure and Folders ✓
+
+  - 우선순위: High
+  - 복잡도: 2
+  - 상태: Done
+
+  Task 2: Implement Core Singletons ✓
+
+  - 우선순위: High
+  - 복잡도: 5
+  - 의존성: Task 1
+  - 상태: Done
+  - GameManager, InputManager, AudioManager 구현
+
+  Task 3: Create Player Character Controller ✓
+
+  - 우선순위: High
+  - 복잡도: 6
+  - 의존성: Task 2
+  - 상태: Done
+  - WASD 이동, Rigidbody 물리
+
+  Task 5: Create Basic Projectile Weapon System ✓ (방금 완료!)
+
+  - 우선순위: High
+  - 복잡도: 7
+  - 의존성: Task 3, 4
+  - 상태: Done
+  - 서브태스크 (5/5 완료):
+    - 5.1: WeaponBase Abstract Class ✓
+    - 5.2: Projectile Component with Physics ✓
+    - 5.3: Automatic Targeting System ✓
+    - 5.4: Fire Rate Timer and Weapon Stats ✓
+    - 5.5: Object Pooling and Visual Effects ✓
+
+  🎯 다음 추천 작업
+
+  Task 4: Implement Object Pooling System
+
+  - 우선순위: High
+  - 복잡도: 5
+  - 의존성: Task 2
+  - 상태: Pending
+  - 설명: ObjectPooler 싱글톤이 이미 존재하지만, 프리팹 구성과 PoolConfig 설정 필요
+  - 작업 내용:
+    - Projectile 프리팹 생성 (200개 풀)
+    - Enemy 프리팹 설정 (100개 풀)
+    - Particle 시스템 풀 (50개)
+    - Damage numbers 풀 (50개)
+
+  📋 대기 중인 주요 작업 (우선순위순)
+
+  High Priority
+
+  - Task 6: Basic Enemy AI with Chase Behavior
+  - Task 7: Enemy Spawning System
+  - Task 26: Optimize Performance and Profiling
+  - Task 27: Balance Gameplay and Difficulty Scaling
+  - Task 29: Prepare Steam Build Configuration
+  - Task 30: Final QA Testing and Bug Fixes
+
+  Medium Priority
+
+  - Task 8-14: XP, 레벨업, 업그레이드 시스템
+
+  Low Priority
+
+  - Task 15-25: 파티클, 오디오, UI, Steam 통합
+
+  🚀 진행 추천
+
+  Task 4를 완료하면 Task 6 (Enemy AI)로 자연스럽게 진행 가능합니다.
+
+  다음 작업을 시작하시겠습니까?
+  task-master next
+```
+
+위 예시는 30개 작업으로 구성된 유니티 게임 프로젝트에서:
+- 4개 작업 완료 (프로젝트 구조, 코어 시스템, 플레이어 컨트롤러, 무기 시스템)
+- 5개 서브태스크 모두 완료 (무기 시스템 세부 구현)
+- 다음 작업으로 오브젝트 풀링 시스템 추천
+- 의존성 기반 자동 작업 순서 제안
+
 ## CLI 명령어
 
 ```bash
