@@ -1,0 +1,59 @@
+/* Home Info Layout Customization */
+
+/* Container for title and social icons */
+.home-title-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5rem;
+}
+
+/* Ensure title doesn't wrap and has proper flex behavior */
+.home-title-container h1 {
+    margin: 0;
+    flex: 0 1 auto;
+}
+
+/* Social icons positioned to the right */
+.home-social-icons {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+/* Adjust social icons size for better alignment */
+.home-social-icons .social-icons {
+    margin: 0;
+}
+
+.home-social-icons .social-icons a {
+    padding: 0.25rem;
+}
+
+/* Reduce spacing between home info and post list */
+.home-info {
+    margin-bottom: 0.5rem !important;  /* Reduced from default 2rem+ */
+}
+
+/* Reduce spacing in entry-content */
+.home-info .entry-content {
+    margin-bottom: 0.25rem;
+}
+
+/* Ensure first post appears closer to home info */
+.main .post-entry:first-of-type {
+    margin-top: 0;
+}
+
+/* Mobile responsive adjustments */
+@media screen and (max-width: 768px) {
+    .home-title-container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .home-social-icons {
+        align-self: flex-start;
+    }
+}

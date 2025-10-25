@@ -63,10 +63,6 @@ theme = 'PaperMod'
     name = "github"
     url = "https://github.com/0xDaz"
 
-  [[params.socialIcons]]
-    name = "email"
-    url = "mailto:esnetni2@gmail.com"
-
 # Menu
 [[menu.main]]
   identifier = "categories"
