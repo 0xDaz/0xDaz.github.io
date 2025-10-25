@@ -3,7 +3,7 @@
 /* Container for title and social icons */
 .home-title-container {
     display: flex;
-    align-items: center;
+    align-items: baseline;
     justify-content: flex-start;
     gap: 0.5rem;
 }
@@ -24,25 +24,34 @@
 /* Adjust social icons size for better alignment */
 .home-social-icons .social-icons {
     margin: 0;
+    display: flex;
+    align-items: center;
 }
 
 .home-social-icons .social-icons a {
-    padding: 0.25rem;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+.home-social-icons .social-icons a svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Reduce spacing between home info and post list */
 .home-info {
-    margin-bottom: 0.5rem !important;  /* Reduced from default 2rem+ */
+    margin-bottom: 0.25rem !important;
 }
 
 /* Reduce spacing in entry-content */
 .home-info .entry-content {
-    margin-bottom: 0.25rem;
+    margin-bottom: 0;
 }
 
-/* Ensure first post appears closer to home info */
-.main .post-entry:first-of-type {
-    margin-top: 0;
+/* Remove header spacing */
+.home-info .entry-header {
+    margin-bottom: 0.5rem;
 }
 
 /* Mobile responsive adjustments */
