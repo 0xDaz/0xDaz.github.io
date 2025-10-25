@@ -39,9 +39,10 @@
     height: 20px;
 }
 
-/* Remove spacing between home info and post list */
-.home-info {
-    margin-bottom: 0 !important;
+/* Optimize spacing between home info and post list */
+.first-entry.home-info {
+    margin-bottom: calc(var(--gap) * 1.5) !important;  /* 36px spacing */
+    min-height: auto !important;
 }
 
 /* Remove spacing in entry-content */
