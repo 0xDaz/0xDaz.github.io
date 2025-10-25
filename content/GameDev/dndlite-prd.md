@@ -340,10 +340,9 @@ GC: 0 allocations per frame (게임플레이 중)
 
 ## PRD 원문
 
-<details>
-<summary>DNDLite PRD 전체 문서 보기</summary>
+{{< details "DNDLite PRD 전체 문서 보기" >}}
 
-```markdown
+```text
 # DNDLite - 3D Bullet Heaven Game PRD
 # 7-Day Development Sprint
 
@@ -932,4 +931,4 @@ At end of each day, assess:
 **Project Code**: DNDLite
 ```
 
-</details>
+{{< /details >}}
