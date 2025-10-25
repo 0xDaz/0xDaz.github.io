@@ -2,9 +2,9 @@ baseURL = 'https://0xDaz.github.io/'
 languageCode = 'ko'
 title = '0xDaz.github.io'
 theme = 'PaperMod'
+mainSections = ["ai", "env", "gamedev"]
 
 [params]
-  mainSections = ["AI", "Env", "GameDev"]
   env = 'production'
   description = 'Development blog'
   author = '0xDaz'
@@ -17,12 +17,12 @@ theme = 'PaperMod'
   googleAnalytics = "G-S08XX8D6VL"
 
   # Disable profile mode for consistent post layout
-  disableSpecial1stPost = true
+  disableSpecial1stPost = false
 
-  # Home page info (displays above post list)
-  [params.homeInfoParams]
-    Title = "0xDaz"
-    Content = "📍 Seoul · 💼 Programmer · 📧 [esnetni2@gmail.com](mailto:esnetni2@gmail.com)"
+  # Home page info (displays above post list) - DISABLED to show post list
+  # [params.homeInfoParams]
+  #   Title = "0xDaz"
+  #   Content = "📍 Seoul · 💼 Programmer · 📧 [esnetni2@gmail.com](mailto:esnetni2@gmail.com)"
 
   # Show reading time
   showReadingTime = true
