@@ -34,11 +34,10 @@ theme = 'PaperMod'
   # Show code copy button
   showCodeCopyButtons = true
 
-  # Profile information
+  # Profile information (disabled to show post list on home page)
   [params.profileMode]
-    enabled = true  # Set to true to enable profile mode on home page
+    enabled = false  # Set to false to show post list on home page
     title = "0xDaz"
-    subtitle = "Game Developer & Programmer"
     imageUrl = ""  # Add profile image path if needed
     imageTitle = "Profile Image"
 

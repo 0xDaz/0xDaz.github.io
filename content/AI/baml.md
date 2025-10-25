@@ -2,7 +2,7 @@
 title: "BAML - AI 프롬프트를 타입 안전한 함수로"
 date: 2025-10-25T01:30:00+09:00
 tags: ["AI", "LLM", "BAML", "Tool", "Prompt Engineering"]
-categories: ["Env"]
+categories: ["AI"]
 draft: false
 ---
 
