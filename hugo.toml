@@ -23,7 +23,7 @@ theme = 'PaperMod'
   showReadingTime = true
 
   # Show share buttons
-  showShareButtons = true
+  showShareButtons = false
 
   # Show table of contents
   showToc = true
@@ -34,10 +34,34 @@ theme = 'PaperMod'
   # Show code copy button
   showCodeCopyButtons = true
 
+  # Profile information
+  [params.profileMode]
+    enabled = true  # Set to true to enable profile mode on home page
+    title = "0xDaz"
+    subtitle = "Game Developer & Programmer"
+    imageUrl = ""  # Add profile image path if needed
+    imageTitle = "Profile Image"
+
+    [[params.profileMode.buttons]]
+      name = "📍 Seoul"
+      url = "#"
+
+    [[params.profileMode.buttons]]
+      name = "💼 Programmer"
+      url = "#"
+
+    [[params.profileMode.buttons]]
+      name = "📧 Contact"
+      url = "mailto:esnetni2@gmail.com"
+
   # Social icons
   [[params.socialIcons]]
     name = "github"
     url = "https://github.com/0xDaz"
+
+  [[params.socialIcons]]
+    name = "email"
+    url = "mailto:esnetni2@gmail.com"
 
 # Menu
 [[menu.main]]
