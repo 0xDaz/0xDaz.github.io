@@ -14,7 +14,7 @@ theme = 'PaperMod'
   images = ["/images/og-image.png"]
 
   # Google Analytics
-  googleAnalytics = "G-Y04T9W49TL"
+  googleAnalytics = "G-S08XX8D6VL"
 
   # Disable profile mode for consistent post layout
   disableSpecial1stPost = true
