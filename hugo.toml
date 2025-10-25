@@ -9,6 +9,9 @@ theme = 'PaperMod'
   description = 'Development blog'
   author = '0xDaz'
 
+  # SEO
+  keywords = ["AI", "개발", "Claude", "MCP", "블로그", "게임 개발", "Unity"]
+
   # Disable profile mode for consistent post layout
   disableSpecial1stPost = true
 
