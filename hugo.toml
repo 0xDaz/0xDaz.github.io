@@ -19,6 +19,11 @@ theme = 'PaperMod'
   # Disable profile mode for consistent post layout
   disableSpecial1stPost = true
 
+  # Home page info (displays above post list)
+  [params.homeInfoParams]
+    Title = "0xDaz"
+    Content = "📍 Seoul · 💼 Programmer · 📧 [esnetni2@gmail.com](mailto:esnetni2@gmail.com)"
+
   # Show reading time
   showReadingTime = true
 
