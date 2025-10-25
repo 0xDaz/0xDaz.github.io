@@ -2,7 +2,7 @@
 title: "ClaudeCode로 Unity 게임 개발 자동화 구축"
 date: 2025-10-25T14:30:00+09:00
 tags: ["Unity", "GameDev", "ClaudeCode", "MCP", "Automation", "Steam", "CI/CD"]
-categories: ["Env"]
+categories: ["GameDev"]
 draft: false
 ---
 
