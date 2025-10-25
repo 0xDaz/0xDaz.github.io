@@ -333,8 +333,603 @@ GC: 0 allocations per frame (게임플레이 중)
 
 ## 참고 링크
 
-- [DNDLite GitHub Repository](#) (TBD)
 - [Task Master AI](https://github.com/cyanheads/task-master)
 - [Unity MCP](https://github.com/unitymcp/unitymcp)
-- [Steamworks.NET](https://steamworks.github.io)
-- [Vampire Survivors](https://store.steampowered.com/app/1794680/Vampire_Survivors)
+
+---
+
+## PRD 원문
+
+<details>
+<summary>DNDLite PRD 전체 문서 보기</summary>
+
+```markdown
+# DNDLite - 3D Bullet Heaven Game PRD
+# 7-Day Development Sprint
+
+# Overview
+DNDLite is a 3D Bullet Heaven game inspired by Vampire Survivors, targeting Steam PC platform. The game features automatic weapon firing, enemy waves, character progression, and RPG-lite mechanics in a 3D environment. Development timeline is 7 days (1 week) with 8-10 hour daily work capacity for solo development.
+
+**Target Platform**: Steam (Windows PC)
+**Engine**: Unity 6000.2.9f1 with URP (Universal Render Pipeline)
+**Genre**: 3D Bullet Heaven / Survivor-like
+**Timeline**: 7 days (MVP focus)
+
+**Core Value Proposition**:
+- Fast-paced automatic combat with satisfying progression
+- Simple controls, complex emergent gameplay
+- Quick gameplay loops (10-15 minute runs)
+- Replayable with meta-progression
+
+# Core Features
+
+## 1. Player Character System
+**What it does**: Player-controlled character with movement, health, and weapon systems
+**Why it's important**: Core gameplay foundation - everything builds on this
+**How it works**:
+- WASD movement in 3D space (locked Y-axis or terrain-following)
+- Character controller with collision detection
+- Health system with damage/death states
+- XP collection and level-up system
+- Visual feedback for damage/healing
+- Animation state machine (idle, run, hurt, death)
+
+## 2. Automatic Weapon System
+**What it does**: Weapons fire automatically at nearest enemies
+**Why it's important**: Core combat mechanic - defines the "auto-shooter" genre
+**How it works**:
+- Weapon base class with projectile spawning
+- Target detection (Physics.OverlapSphere for nearest enemy)
+- Projectile pooling system
+- Multiple weapon types (projectile, beam, orbital, area)
+- Weapon stats: damage, fire rate, range, projectile count
+- Visual and audio feedback per weapon type
+
+## 3. Enemy Spawning System
+**What it does**: Spawns enemy waves with increasing difficulty
+**Why it's important**: Provides challenge and progression curve
+**How it works**:
+- Wave-based spawning at map boundaries
+- Enemy pool system (object pooling)
+- Difficulty scaling over time
+- Enemy types with different behaviors (melee chase, ranged, tanky)
+- Boss/elite spawns at intervals
+- Spawn rate increases with game time
+
+## 4. Enemy AI System
+**What it does**: Enemy movement and attack behaviors
+**Why it's important**: Creates engaging combat scenarios
+**How it works**:
+- Simple NavMesh-based pathfinding OR direct vector movement
+- Chase player behavior
+- Attack on contact (melee) or projectile (ranged)
+- Health and death handling
+- Drop XP gems on death
+- Ragdoll or dissolve death effects
+
+## 5. Level-Up and Upgrade System
+**What it does**: Character gains power through level-ups
+**Why it's important**: Core progression loop - player motivation
+**How it works**:
+- XP collection from defeated enemies
+- Level-up triggers pause with upgrade choices
+- 3-4 random upgrade cards per level
+- Upgrades include: new weapons, stat boosts, weapon evolutions
+- ScriptableObject-based upgrade database
+- UI card selection interface
+
+## 6. Game Loop Management
+**What it does**: Manages game states (menu, playing, paused, game over)
+**Why it's important**: Controls flow and user experience
+**How it works**:
+- Game state machine
+- Timer system (survival time tracking)
+- Pause functionality
+- Victory/defeat conditions
+- Run statistics tracking
+- Scene management (additive loading)
+
+## 7. Visual Effects System
+**What it does**: Particle effects for weapons, hits, deaths
+**Why it's important**: Juice and feedback - makes combat satisfying
+**How it works**:
+- Pooled particle systems
+- Hit impacts, explosions, trails
+- Screen shake on impactful events
+- Damage numbers spawning
+- Post-processing effects (bloom, color grading)
+
+## 8. UI System
+**What it does**: HUD, menus, upgrade selection interface
+**Why it's important**: Information display and player input
+**How it works**:
+- Health bar, XP bar, timer display
+- Level-up card selection UI
+- Pause menu with resume/quit
+- Game over screen with stats
+- Main menu with start/settings/quit
+- TextMeshPro for all text
+
+## 9. Audio System
+**What it does**: Sound effects and background music
+**Why it's important**: Enhances atmosphere and feedback
+**How it works**:
+- AudioManager singleton with pooling
+- Layered music system
+- SFX for weapons, hits, level-up, death
+- Volume controls in settings
+- Audio mixer groups
+
+## 10. Steam Integration (Basic)
+**What it does**: Steam initialization and basic SDK features
+**Why it's important**: Required for Steam deployment
+**How it works**:
+- Steamworks.NET plugin
+- Steam initialization check
+- Achievements (basic set)
+- Steam Input support
+- Cloud save preparation (future)
+
+# User Experience
+
+## User Personas
+**Primary**: Core gamer (20-35), enjoys roguelite/roguelike games, familiar with Vampire Survivors, seeks quick gaming sessions, plays on PC
+
+## Key User Flows
+
+### First-Time Player Flow:
+1. Launch game → Main Menu
+2. Click "Start" → Brief tutorial overlay (movement/survival basics)
+3. Spawn in arena → Auto-fire begins → Collect XP
+4. First level-up → Choose upgrade (guided)
+5. Continue until death → Stats screen → Retry
+
+### Experienced Player Flow:
+1. Main Menu → Start
+2. Immediate gameplay
+3. Strategic upgrade choices at level-ups
+4. Push for longer survival times
+5. Unlock meta-progression (future)
+
+## UI/UX Considerations
+- Minimal HUD clutter (corners only)
+- Large, readable text (TextMeshPro)
+- Clear visual hierarchy on upgrade cards
+- Responsive controls (no input lag)
+- Satisfying feedback (screen shake, particles, sound)
+- Pause accessible anytime (ESC key)
+- Color-coded rarities (common/rare/epic)
+
+# Technical Architecture
+
+## System Components
+
+### Core Systems:
+1. **GameManager** (Singleton)
+   - Game state machine
+   - Scene management
+   - Timer/wave tracking
+
+2. **InputManager** (Singleton)
+   - Unity Input System wrapper
+   - Action mapping (movement, pause, interact)
+
+3. **AudioManager** (Singleton)
+   - SFX pooling
+   - Music playback
+   - Volume control
+
+4. **ObjectPoolManager** (Singleton)
+   - Generic pooling system
+   - Pools: projectiles, enemies, particles, damage numbers
+
+5. **UpgradeManager**
+   - Upgrade database (ScriptableObject)
+   - Random selection logic
+   - Upgrade application
+
+6. **EnemySpawner**
+   - Wave configuration (ScriptableObject)
+   - Spawn point management
+   - Difficulty scaling
+
+### Gameplay Components:
+1. **PlayerController** (MonoBehaviour)
+   - Movement (CharacterController)
+   - Health/XP tracking
+   - Weapon management
+   - Input handling
+
+2. **WeaponBase** (Abstract MonoBehaviour)
+   - Fire rate timer
+   - Target acquisition
+   - Projectile spawning
+   - Upgrade stats
+
+3. **EnemyController** (MonoBehaviour)
+   - Movement AI
+   - Health/damage
+   - Attack behavior
+   - Death handling
+
+4. **Projectile** (MonoBehaviour)
+   - Movement
+   - Collision detection
+   - Lifetime management
+   - Damage application
+
+## Data Models
+
+### ScriptableObjects:
+- **WeaponData**: Base stats (damage, fireRate, range, projectileSpeed, etc.)
+- **EnemyData**: Health, speed, damage, XP value, model reference
+- **UpgradeData**: Type (weapon/stat), rarity, description, effects
+- **WaveConfig**: Enemy types, spawn rates, timing
+- **AudioClipGroup**: Randomized SFX variants
+
+### Serialized Classes:
+- **PlayerStats**: Health, moveSpeed, XP, level, equipped weapons
+- **GameStats**: Survival time, kills, damage dealt, upgrades taken
+- **SaveData**: Meta-progression (future), unlocks, settings
+
+## APIs and Integrations
+- **Unity Input System**: Player input handling
+- **Unity NavMesh** (optional): Enemy pathfinding
+- **TextMeshPro**: UI text rendering
+- **Steamworks.NET**: Steam platform integration
+- **Unity Analytics** (optional): Telemetry
+
+## Infrastructure Requirements
+- **Unity Version**: 6000.2.9f1
+- **Render Pipeline**: URP
+- **Build Target**: Windows Standalone (64-bit)
+- **Minimum Specs**: Windows 10, 4GB RAM, DX11 GPU
+- **Git LFS**: For large assets (textures, audio, models)
+
+# Development Roadmap
+
+## Phase 1: Core Prototype (Days 1-2)
+**Goal**: Playable vertical slice - player can move, shoot, enemies spawn and die
+
+### Day 1 - Foundation:
+- Unity project structure (Assets/_Project folders)
+- Player character controller with movement
+- Basic weapon (auto-fire projectile)
+- Single enemy type (chase AI)
+- Object pooling for projectiles
+- Basic health/damage system
+- Simple arena environment
+
+**Deliverable**: Player can move and shoot enemies that chase them
+
+### Day 2 - Game Loop:
+- Enemy spawner system
+- XP gem collection
+- Level-up trigger
+- Basic upgrade UI (choose 1 of 3 stat boosts)
+- Death/game over state
+- Timer and wave progression
+- Second weapon type
+
+**Deliverable**: Complete gameplay loop from start to death with progression
+
+## Phase 2: Core Mechanics (Days 3-4)
+**Goal**: Depth and variety - multiple weapons/enemies/upgrades
+
+### Day 3 - Weapon & Enemy Variety:
+- 4-5 weapon types (projectile, beam, orbital, area, piercing)
+- Weapon upgrade system (level up existing weapons)
+- 3-4 enemy types (melee, ranged, tank, fast)
+- Enemy pooling system
+- Difficulty scaling algorithm
+- Basic VFX (muzzle flash, hit impacts)
+
+**Deliverable**: Variety in combat scenarios, replayability emerging
+
+### Day 4 - Progression Systems:
+- Upgrade database (10-15 upgrades)
+- Weapon evolution system (combine/upgrade paths)
+- Rarity tiers (common/rare/epic)
+- Boss/elite enemy spawns
+- Advanced player stats (crit, area, speed multipliers)
+- Meta-progression foundation (unlock system structure)
+
+**Deliverable**: Strategic depth in upgrade choices, meaningful progression
+
+## Phase 3: Polish & Content (Days 5-6)
+**Goal**: Game feel and presentation
+
+### Day 5 - Juice & Feedback:
+- Particle systems (all weapons, deaths, level-ups)
+- Screen shake system
+- Damage numbers
+- Post-processing (bloom, vignette, color grading)
+- Sound effects (weapons, hits, level-up, death)
+- Background music (layered, intensity-based)
+- Animation polish (player, enemies)
+
+**Deliverable**: Satisfying, impactful combat feel
+
+### Day 6 - UI & Content:
+- Main menu (start, settings, quit)
+- Pause menu
+- HUD design (health, XP, timer, weapon icons)
+- Level-up card UI polish
+- Game over stats screen
+- Settings (audio, graphics, controls)
+- Tutorial overlay/tooltips
+- Additional weapons/enemies/upgrades (expand to 20+ upgrades)
+
+**Deliverable**: Complete UI flow, polished presentation
+
+## Phase 4: Build & Test (Day 7)
+**Goal**: Shippable Steam build
+
+### Day 7 - Integration & Testing:
+- Steamworks.NET integration
+- Steam build configuration
+- Performance optimization (60 FPS target)
+- Bug fixing (critical issues)
+- Balance tuning (difficulty curve, upgrade power)
+- Build automation (CI/CD setup)
+- Playtesting and iteration
+- Final QA pass
+
+**Deliverable**: Steam-ready build, tested and balanced
+
+# Logical Dependency Chain
+
+## Foundation → Visibility → Depth → Polish
+
+### Tier 1 (Must Build First):
+1. **Project Structure** - All development depends on this
+2. **Player Controller** - Core interaction point
+3. **Basic Weapon** - Immediate visible feedback
+4. **Enemy AI** - Something to interact with
+5. **Object Pooling** - Performance foundation
+
+### Tier 2 (Build Next for Playability):
+6. **Enemy Spawner** - Continuous challenge
+7. **Health/Damage System** - Win/lose conditions
+8. **XP/Level System** - Progression hook
+9. **Basic Upgrade UI** - Player choice/agency
+10. **Game State Management** - Flow control
+
+### Tier 3 (Add Depth):
+11. **Multiple Weapons** - Variety
+12. **Multiple Enemies** - Complexity
+13. **Upgrade Database** - Strategic choices
+14. **Difficulty Scaling** - Challenge curve
+15. **ScriptableObject Architecture** - Data-driven design
+
+### Tier 4 (Polish & Completeness):
+16. **VFX & Particles** - Feedback and juice
+17. **Audio System** - Atmosphere
+18. **UI Polish** - Presentation
+19. **Menus & Flow** - User experience
+20. **Steam Integration** - Platform requirement
+
+## Atomic Feature Scoping
+
+Each feature should be:
+- **Buildable in 1-3 hours** (for solo dev)
+- **Testable independently** (unit/integration tests)
+- **Shippable incrementally** (can merge to main)
+- **Improvable later** (refactor-friendly)
+
+Example: Weapon System
+- Atomic v1: Single projectile weapon with auto-fire
+- Improvement v2: Add weapon stats (damage, fire rate)
+- Improvement v3: Add target prioritization
+- Improvement v4: Add weapon upgrade system
+- Improvement v5: Add multiple weapon types
+
+# Risks and Mitigations
+
+## Technical Challenges
+
+### Risk: Performance degradation with many entities
+**Mitigation**:
+- Implement object pooling from Day 1
+- Use Unity Profiler early and often
+- Target 60 FPS with 200+ entities on screen
+- Consider ECS/DOTS if performance issues persist
+
+### Risk: NavMesh performance overhead
+**Mitigation**:
+- Use simple vector-based movement for basic enemies
+- Reserve NavMesh for complex AI only
+- Test with 100+ enemies before committing to NavMesh
+
+### Risk: Unity Input System complexity
+**Mitigation**:
+- Create simple wrapper (InputManager)
+- Use pre-configured action maps
+- Test on multiple input devices early
+
+### Risk: Steamworks integration issues
+**Mitigation**:
+- Use Steamworks.NET (proven plugin)
+- Test Steam initialization on Day 1
+- Use App ID 480 for development
+- Keep Steam features minimal (init + achievements only)
+
+## MVP Scoping Risks
+
+### Risk: Scope creep (too many features)
+**Mitigation**:
+- Strict 7-day timeline enforcement
+- MVP features ONLY (no meta-progression, no multiple characters)
+- Cut content, not quality (fewer weapons/enemies, but polished)
+- Daily check-ins against timeline
+
+### Risk: Over-engineering early systems
+**Mitigation**:
+- "Make it work, then make it good, then make it fast"
+- Avoid premature optimization
+- Refactor in dedicated time blocks (end of Day 2, 4, 6)
+- Single-responsibility principle for all classes
+
+### Risk: Art/asset bottleneck (no artist)
+**Mitigation**:
+- Use Unity primitives (cubes, spheres, capsules) with materials
+- Free asset packs (Kenney, Unity Asset Store freebies)
+- Particle effects > complex models
+- Prioritize gameplay over visuals
+
+## Resource Constraints
+
+### Risk: Solo development fatigue
+**Mitigation**:
+- 8-10 hour daily work blocks (sustainable pace)
+- Built-in buffer time each day (20% for unknowns)
+- Focus on core loop first (playable by Day 2)
+- Celebrate daily milestones
+
+### Risk: Knowledge gaps (Unity 6, URP, Steamworks)
+**Mitigation**:
+- Use Context7 for Unity/Hugo documentation (MANDATORY before implementation)
+- Keep backup resources (Unity docs, forums)
+- Timebox research (1 hour max per unknown)
+- Prefer proven solutions over experimental
+
+### Risk: Integration issues between systems
+**Mitigation**:
+- Follow CLAUDE.md architecture patterns
+- Use ScriptableObject events for decoupling
+- Test integrations immediately (don't batch)
+- Version control discipline (commit after each feature)
+
+# Appendix
+
+## Unity Project Structure
+
+```
+Assets/
+├── _Project/
+│   ├── Scripts/
+│   │   ├── Core/           # GameManager, ObjectPooler, etc.
+│   │   ├── Player/         # PlayerController, PlayerStats, etc.
+│   │   ├── Weapons/        # WeaponBase, Projectile, weapon types
+│   │   ├── Enemies/        # EnemyController, EnemyAI, enemy types
+│   │   ├── Systems/        # UpgradeSystem, SpawnSystem, etc.
+│   │   ├── UI/             # Menus, HUD, upgrade cards
+│   │   └── Utilities/      # Extensions, helpers, pooling
+│   ├── Prefabs/
+│   │   ├── Player/
+│   │   ├── Weapons/
+│   │   ├── Enemies/
+│   │   ├── VFX/
+│   │   └── UI/
+│   ├── Data/               # ScriptableObjects
+│   │   ├── Weapons/
+│   │   ├── Enemies/
+│   │   ├── Upgrades/
+│   │   └── Waves/
+│   ├── Scenes/
+│   │   ├── _Persistent.unity    # GameManager, AudioManager
+│   │   ├── MainMenu.unity
+│   │   └── Gameplay.unity
+│   ├── Materials/
+│   ├── Audio/
+│   │   ├── Music/
+│   │   └── SFX/
+│   └── VFX/
+└── Plugins/
+    └── Steamworks.NET/
+```
+
+## Key Dependencies
+
+- **Unity Input System** (com.unity.inputsystem)
+- **TextMeshPro** (com.unity.textmeshpro)
+- **Universal RP** (com.unity.render-pipelines.universal)
+- **Steamworks.NET** (via Asset Store or GitHub)
+
+## Performance Targets
+
+- **FPS**: 60 (consistent, vsync on)
+- **Frame Budget**: 16.67ms
+- **Entity Count**: 200+ enemies on screen
+- **Memory**: <512MB heap
+- **Build Size**: <500MB
+
+## Testing Checklist
+
+### Functional Tests:
+- [ ] Player movement in all directions
+- [ ] Weapon firing and hit detection
+- [ ] Enemy spawning and AI
+- [ ] XP collection and level-up
+- [ ] Upgrade selection and application
+- [ ] Death and restart flow
+- [ ] Pause and resume
+- [ ] Audio playback
+- [ ] Settings persistence
+
+### Performance Tests:
+- [ ] 60 FPS with 200+ enemies
+- [ ] No GC allocations in Update loops
+- [ ] Object pooling functioning
+- [ ] Memory stable over 30-minute run
+
+### Integration Tests:
+- [ ] Steam initialization
+- [ ] Steam achievements triggering
+- [ ] Build runs on clean Windows install
+- [ ] Input works with keyboard + gamepad
+
+## Asset Sources (Free)
+
+- **3D Models**: Kenney.nl, Unity Asset Store (free section)
+- **Audio**: Freesound.org, OpenGameArt.org
+- **VFX**: Unity Particle Pack (free), Polygonal Particle FX (free)
+- **Fonts**: Google Fonts (SIL Open Font License)
+
+## Success Criteria
+
+### Minimum Viable Product (Day 7):
+- ✅ Player can move and survive
+- ✅ 3+ weapon types
+- ✅ 3+ enemy types
+- ✅ 10+ upgrade choices
+- ✅ Difficulty scales over time
+- ✅ Complete UI flow (menu → game → death → retry)
+- ✅ Audio and VFX present
+- ✅ Steam build launches
+- ✅ 60 FPS performance
+- ✅ 10-15 minute average run time
+
+### Stretch Goals (if time permits):
+- ⭐ 5+ weapon types with evolutions
+- ⭐ Boss enemy encounters
+- ⭐ Multiple arena environments
+- ⭐ Character selection (2+ characters)
+- ⭐ Meta-progression (persistent unlocks)
+- ⭐ Achievements (10+)
+
+## Daily Review Questions
+
+At end of each day, assess:
+1. Did I complete today's deliverable?
+2. Are there blockers for tomorrow?
+3. Is the timeline still realistic?
+4. Do I need to cut scope?
+5. Is the game fun yet?
+
+## References
+
+- Unity Documentation: https://docs.unity3d.com/
+- Vampire Survivors (reference game)
+- Steamworks.NET: https://steamworks.github.io/
+- Unity Input System: https://docs.unity3d.com/Packages/com.unity.inputsystem@latest/
+
+---
+
+**Document Version**: 1.0
+**Last Updated**: 2025-10-25
+**Sprint Timeline**: 7 Days (2025-10-25 to 2025-10-31)
+**Project Code**: DNDLite
+```
+
+</details>
