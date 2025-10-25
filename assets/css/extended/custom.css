@@ -86,8 +86,7 @@
 }
 
 .details-shortcode summary:hover {
-    background: var(--theme);
-    opacity: 0.8;
+    background-color: rgba(0, 0, 0, 0.05);
 }
 
 .details-shortcode[open] summary {
@@ -101,9 +100,4 @@
 
 .details-shortcode .details-content pre {
     margin: 1rem 0;
-}
-
-/* Add disclosure triangle styling */
-.details-shortcode summary::marker {
-    color: var(--primary);
 }
