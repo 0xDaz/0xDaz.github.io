@@ -4,7 +4,7 @@ title = '0xDaz.github.io'
 theme = 'PaperMod'
 
 [params]
-  mainSections = ["ai", "env"]
+  mainSections = ["AI", "Env", "GameDev"]
   env = 'production'
   description = 'Development blog'
   author = '0xDaz'
