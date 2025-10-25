@@ -13,8 +13,8 @@ theme = 'PaperMod'
   keywords = ["AI", "개발", "Claude", "MCP", "블로그", "게임 개발", "Unity"]
   images = ["/images/og-image.png"]
 
-  # Google Analytics (uncomment and add your GA4 measurement ID)
-  # googleAnalytics = "G-XXXXXXXXXX"
+  # Google Analytics
+  googleAnalytics = "G-Y04T9W49TL"
 
   # Disable profile mode for consistent post layout
   disableSpecial1stPost = true
