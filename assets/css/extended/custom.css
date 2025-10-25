@@ -68,3 +68,42 @@
         align-self: flex-start;
     }
 }
+
+/* Details Shortcode Styling */
+.details-shortcode {
+    margin: 1.5rem 0;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: var(--entry);
+}
+
+.details-shortcode summary {
+    padding: 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.details-shortcode summary:hover {
+    background: var(--theme);
+    opacity: 0.8;
+}
+
+.details-shortcode[open] summary {
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 1rem;
+}
+
+.details-shortcode .details-content {
+    padding: 0 1rem 1rem 1rem;
+}
+
+.details-shortcode .details-content pre {
+    margin: 1rem 0;
+}
+
+/* Add disclosure triangle styling */
+.details-shortcode summary::marker {
+    color: var(--primary);
+}

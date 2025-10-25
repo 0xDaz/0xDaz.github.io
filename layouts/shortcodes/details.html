@@ -1,0 +1,10 @@
+{{- /*
+Hugo shortcode for collapsible details/summary HTML element
+Usage: {{< details "Summary Text" >}}content{{< /details >}}
+*/ -}}
+<details class="details-shortcode">
+    <summary>{{ .Get 0 }}</summary>
+    <div class="details-content">
+        {{ .Inner | markdownify }}
+    </div>
+</details>
