@@ -9,7 +9,7 @@ description: "7일 개발 스프린트로 완성하는 뱀파이어 서바이버
 
 ## 개요
 
-**DNDLite** - 뱀파이어 서바이버류 3D Bullet Heaven 게임
+뱀파이어 서바이버류 3D Bullet Heaven 게임
 
 7일 개발 스프린트로 MVP 완성, Steam 배포 목표
 
@@ -340,7 +340,7 @@ GC: 0 allocations per frame (게임플레이 중)
 
 ## PRD 원문
 
-{{< details "DNDLite PRD 전체 문서 보기" >}}
+{{< details "PRD 전체 문서 보기" >}}
 
 ````text
 # DNDLite - 3D Bullet Heaven Game PRD

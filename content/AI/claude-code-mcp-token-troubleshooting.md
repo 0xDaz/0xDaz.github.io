@@ -3,7 +3,7 @@ title: "Claude Code MCP 서버 토큰 관련 트러블 슈팅"
 date: 2025-10-27T01:43:09+09:00
 draft: false
 tags: ["Claude Code", "MCP", "최적화", "트러블슈팅"]
-categories: ["개발"]
+categories: ["AI"]
 description: "Claude Code MCP 서버 초기 로드시 5만+ 토큰 소모 문제 해결 과정"
 ---
 
