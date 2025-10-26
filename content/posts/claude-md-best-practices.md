@@ -2,7 +2,7 @@
 title: "CLAUDE.md 작성 모범 사례 - Claude Code를 위한 효율적인 가이드"
 date: 2025-10-26T09:30:00+09:00
 tags: ["claude-code", "ai", "best-practices", "productivity"]
-categories: ["Development"]
+categories: ["AI"]
 draft: false
 description: "Claude Code의 CLAUDE.md 파일을 효율적으로 관리하는 방법 - 토큰 비용 절감과 명확한 지시를 위한 실전 팁"
 ---
