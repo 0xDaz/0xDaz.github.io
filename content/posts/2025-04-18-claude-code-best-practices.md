@@ -3,7 +3,7 @@ title: "Claude Code: 에이전틱 코딩을 위한 모범 사례"
 date: 2025-04-18T00:00:00+09:00
 draft: false
 tags: ["AI", "개발도구", "Claude", "번역"]
-categories: ["개발"]
+categories: ["AI"]
 description: "Anthropic Engineering 블로그의 Claude Code 활용 가이드 한글 번역 - 에이전틱 코딩을 위한 6가지 핵심 패턴과 실전 워크플로우"
 ---
 
