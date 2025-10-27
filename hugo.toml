@@ -1,4 +1,4 @@
-baseURL = 'https://0xDaz.github.io/'
+baseURL = 'https://0xdaz.github.io/'
 languageCode = 'ko'
 title = '0xDaz.github.io'
 theme = 'PaperMod'
