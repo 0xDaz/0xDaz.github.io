@@ -1694,5 +1694,3 @@ RAG만? → LangChain
 - [GitHub - LangGraph](https://github.com/langchain-ai/langgraph)
 
 ---
-
-**다음 글 예고:** Unity에서 LangGraph를 활용한 실전 NPC AI 시스템 구축 (C# ↔ Python 통신 포함)
