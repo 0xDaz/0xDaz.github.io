@@ -15,30 +15,15 @@
 
 ### 말투 및 문체
 
-**간결하고 직설적인 표현 사용:**
-
-- ❌ "제공하는 툴이다" → ✅ "제공하는 툴"
-- ❌ "설치해야 한다" → ✅ "설치 필요"
-- ❌ "사용할 수 있다" → ✅ "사용 가능"
-- ❌ "없었다" → ✅ "없었음"
-- ❌ "다운로드한다" → ✅ "다운로드"
-
-**종결어미:**
-- `-다` 체 지양
-- `-음`, `필요`, `가능` 같은 간결한 표현 사용
-- 체언 종결 선호
-- **마침표(.) 생략** - 더욱 간결한 문체
+**간결하고 직설적 표현:**
+- ❌ "-이다/-해야 한다/-할 수 있다" → ✅ 체언 종결, "-음/-필요/-가능"
+- 마침표(.) 생략
 
 **예시:**
 ```markdown
-❌ Mac에는 Spotlight가 있지만, Windows에는 대안이 없었다.
-✅ Mac에는 Spotlight가 있지만, Windows에는 대안이 없었음
-
-❌ 먼저 Everything을 설치해야 한다.
-✅ 먼저 Everything을 설치 필요
-
-❌ 편하게 사용할 수 있다.
-✅ 편하게 사용 가능
+❌ Windows에는 대안이 없었다 → ✅ Windows에는 대안이 없었음
+❌ 먼저 설치해야 한다 → ✅ 먼저 설치 필요
+❌ 사용할 수 있다 → ✅ 사용 가능
 ```
 
 ### Front Matter 형식
@@ -93,42 +78,21 @@ draft: false
 ![설명](/images/filename.gif)
 ```
 
-## 디렉토리 구조
+## 구조
 
-```
-content/
-├── Env/              # 개발 환경 설정
-│   └── _index.md
-└── posts/            # 일반 포스트
-```
+`content/Env/` - 개발 환경 설정 | `content/posts/` - 일반 포스트
 
 ## 명령어
 
-### 로컬 서버 실행
-```bash
-hugo server -D
-```
+로컬 서버: `hugo server -D`
+새 포스트: `hugo new content [경로]/[파일명].md`
+빌드: `hugo --minify`
 
-### 새 포스트 생성
-```bash
-hugo new content [경로]/[파일명].md
-```
+## Git & 배포
 
-### 빌드
-```bash
-hugo --minify
-```
+1. 작성 → 2. 테스트 (`hugo server -D`) → 3. 커밋/푸시 → 4. GitHub Actions 자동 배포
 
-## Git 워크플로우
-
-1. 변경사항 작성
-2. 로컬에서 테스트 (`hugo server -D`)
-3. 커밋 및 푸시
-4. GitHub Actions 자동 배포
-
-## 주의사항
-
-- draft: false로 설정해야 배포됨
-- 이미지는 반드시 static/images/에 저장
-- 한글 디렉토리명보다 영문 사용 권장
-- 포스트 파일명은 소문자와 하이픈 사용 (예: everythingtoolbar.md)
+**주의:**
+- draft: false (배포 필수)
+- 이미지: static/images/
+- 파일명: 소문자-하이픈 (예: everythingtoolbar.md)

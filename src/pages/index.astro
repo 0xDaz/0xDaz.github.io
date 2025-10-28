@@ -1,0 +1,236 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
+import Header from '../components/Header.astro';
+import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.filter(post => !post.data.draft)
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 6);
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			main {
+				max-width: 1200px;
+				width: 100%;
+				padding: 3em 2em;
+			}
+
+			.hero {
+				text-align: center;
+				padding: 4em 0;
+				margin-bottom: 4em;
+			}
+
+			.hero h1 {
+				font-size: 3.5em;
+				margin-bottom: 0.5em;
+				line-height: 1.1;
+				color: var(--text-primary);
+				background: none;
+				-webkit-text-fill-color: unset;
+			}
+
+			.hero .subtitle {
+				font-size: 1.4em;
+				color: var(--text-secondary);
+				margin-bottom: 1.5em;
+			}
+
+			.hero .subtitle a {
+				color: var(--accent-secondary);
+				text-decoration: none;
+				transition: all 0.2s ease;
+			}
+
+			.hero .subtitle a:hover {
+				color: var(--accent-primary);
+			}
+
+			.cta-button {
+				display: inline-block;
+				padding: 1em 2em;
+				background: var(--accent-gradient);
+				color: white;
+				border-radius: 12px;
+				font-weight: 600;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
+			}
+
+			.cta-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 12px 32px rgba(139, 92, 246, 0.4);
+			}
+
+			.section-header {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				margin-bottom: 2em;
+			}
+
+			.section-title {
+				font-size: 2em;
+				margin: 0;
+			}
+
+			.section-link {
+				color: var(--accent-secondary);
+				text-decoration: none;
+				font-weight: 600;
+				transition: all 0.2s ease;
+			}
+
+			.section-link:hover {
+				color: var(--accent-primary);
+			}
+
+			.posts-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+				gap: 2em;
+				list-style: none;
+				margin: 0;
+				padding: 0;
+			}
+
+			.post-card {
+				background: var(--bg-card);
+				border: 1px solid var(--border-color);
+				border-radius: 16px;
+				overflow: hidden;
+				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			}
+
+			.post-card:hover {
+				transform: translateY(-8px);
+				border-color: var(--accent-primary);
+				box-shadow:
+					0 0 32px var(--glow-primary),
+					0 12px 48px rgba(0, 0, 0, 0.5);
+			}
+
+			.post-card a {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+			}
+
+			.post-content {
+				padding: 1.5em;
+			}
+
+			.post-meta {
+				display: flex;
+				align-items: center;
+				gap: 0.75em;
+				margin-bottom: 1em;
+			}
+
+			.post-date {
+				color: var(--text-muted);
+				font-size: 0.875em;
+				font-weight: 500;
+			}
+
+			.post-category {
+				padding: 0.25em 0.75em;
+				background: var(--accent-gradient);
+				color: white;
+				border-radius: 12px;
+				font-size: 0.75em;
+				font-weight: 600;
+				text-transform: uppercase;
+			}
+
+			.post-title {
+				margin: 0 0 0.5em 0;
+				color: var(--text-primary);
+				font-size: 1.25em;
+				line-height: 1.4;
+				transition: all 0.2s ease;
+			}
+
+			.post-card:hover .post-title {
+				background: var(--accent-gradient);
+				-webkit-background-clip: text;
+				-webkit-text-fill-color: transparent;
+				background-clip: text;
+			}
+
+			@media (max-width: 768px) {
+				main {
+					padding: 2em 1em;
+				}
+
+				.hero {
+					padding: 2em 0;
+				}
+
+				.hero h1 {
+					font-size: 2.5em;
+				}
+
+				.hero .subtitle {
+					font-size: 1.2em;
+				}
+
+				.posts-grid {
+					grid-template-columns: 1fr;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<h1>Hey, I'm {SITE_AUTHOR}</h1>
+				<p class="subtitle">
+					📍 Seoul • 💼 Programmer • 📧 <a href="mailto:esnetni2@gmail.com">esnetni2@gmail.com</a>
+				</p>
+				<a href="/blog" class="cta-button">View Posts</a>
+			</section>
+
+			<section>
+				<div class="section-header">
+					<h2 class="section-title">Recent Posts</h2>
+					<a href="/blog" class="section-link">View All →</a>
+				</div>
+				<ul class="posts-grid">
+					{
+						posts.map((post) => (
+							<li>
+								<article class="post-card">
+									<a href={`/blog/${post.id}/`}>
+										<div class="post-content">
+											<div class="post-meta">
+												<span class="post-date">
+													<FormattedDate date={post.data.pubDate} />
+												</span>
+												{post.data.categories && post.data.categories.length > 0 && (
+													<span class="post-category">{post.data.categories[0]}</span>
+												)}
+											</div>
+											<h3 class="post-title">{post.data.title}</h3>
+										</div>
+									</a>
+								</article>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

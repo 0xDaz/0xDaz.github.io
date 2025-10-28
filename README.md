@@ -1,78 +1,79 @@
-# 0xD Blog
+# 0xDaz.github.io - Astro Version
 
-Hugo로 만든 개인 블로그입니다.
+Hugo 블로그를 Astro로 전환한 버전입니다.
 
-## 개발 환경 설정
+## 프로젝트 정보
 
-### 로컬에서 실행하기
+- **프레임워크**: Astro 5.15
+- **타입스크립트**: Strict 모드
+- **배포**: GitHub Pages
+- **원본**: Hugo + PaperMod 테마
 
-```bash
-# 개발 서버 시작 (drafts 포함)
-hugo server -D
+## 마이그레이션 완료 항목
 
-# 브라우저에서 http://localhost:1313 접속
+- ✅ 15개 블로그 포스트 마이그레이션 (DNDLITE 관련 콘텐츠 제외)
+- ✅ 이미지 및 정적 파일 복사
+- ✅ 카테고리/태그 시스템 설정
+- ✅ RSS 피드 생성
+- ✅ Sitemap 생성
+- ✅ GitHub Actions 배포 설정
+
+## 제외된 콘텐츠
+
+- `prd-by-agent.md` (DNDLITE PRD 문서)
+- `_index.md` 파일들 (카테고리 인덱스)
+
+## 🚀 Project Structure
+
+Inside of your Astro project, you'll see the following folders and files:
+
+```text
+├── public/
+├── src/
+│   ├── components/
+│   ├── content/
+│   ├── layouts/
+│   └── pages/
+├── astro.config.mjs
+├── README.md
+├── package.json
+└── tsconfig.json
 ```
 
-### 새 포스트 작성하기
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
-```bash
-# posts 디렉토리에 새 포스트 생성
-hugo new content posts/post-title.md
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-# 생성된 파일을 편집하고 draft: true를 false로 변경
-```
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-### 빌드하기
+Any static assets, like images, can be placed in the `public/` directory.
 
-```bash
-# 정적 사이트 빌드 (public/ 디렉토리에 생성됨)
-hugo
+## 🧞 Commands
 
-# minify 옵션과 함께 빌드
-hugo --minify
-```
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
 
 ## 배포
 
-GitHub에 push하면 GitHub Actions가 자동으로 빌드하고 GitHub Pages에 배포합니다.
+`astro-migration` 브랜치에 푸시하면 GitHub Actions가 자동으로 빌드 및 배포합니다.
 
-### GitHub Pages 설정
+## 기술 스택
 
-1. GitHub 저장소 Settings > Pages로 이동
-2. Source를 "GitHub Actions"로 선택
-3. main 브랜치에 push하면 자동 배포
+- **Astro**: 5.15.1
+- **MDX**: 4.3.8
+- **RSS**: 4.0.13
+- **Sitemap**: 3.6.0
+- **Sharp**: 0.34.3 (이미지 최적화)
 
-## 테마
+## 참고 링크
 
-이 블로그는 [PaperMod](https://github.com/adityatelange/hugo-PaperMod) 테마를 사용합니다.
-
-## 디렉토리 구조
-
-```
-.
-├── .github/
-│   └── workflows/
-│       └── hugo.yml        # GitHub Actions 워크플로우
-├── archetypes/             # 콘텐츠 템플릿
-├── content/                # 블로그 포스트 및 페이지
-│   └── posts/              # 블로그 포스트
-├── static/                 # 정적 파일 (이미지, CSS 등)
-├── themes/                 # Hugo 테마
-│   └── PaperMod/           # PaperMod 테마 (git submodule)
-├── hugo.toml               # Hugo 설정 파일
-└── README.md               # 이 파일
-```
-
-## 설정 파일
-
-주요 설정은 `hugo.toml` 파일에서 관리합니다:
-
-- `baseURL`: 블로그 URL
-- `title`: 블로그 제목
-- `params`: 테마 관련 설정
-
-## 참고 자료
-
-- [Hugo 문서](https://gohugo.io/documentation/)
-- [PaperMod 테마 문서](https://github.com/adityatelange/hugo-PaperMod/wiki)
-- [Hugo GitHub Actions](https://gohugo.io/hosting-and-deployment/hosting-on-github/)
+- [Astro 공식 문서](https://docs.astro.build)
+- [원본 Hugo 블로그](https://github.com/0xDaz/0xD.github.io)
