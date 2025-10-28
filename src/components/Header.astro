@@ -1,16 +1,29 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getRelativeLocaleUrl } from 'astro:i18n';
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <header>
 	<nav>
-		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<h2><a href={getRelativeLocaleUrl(lang, '/')}>{SITE_TITLE}</a></h2>
 		<div class="internal-links">
-			<HeaderLink href="/">Home</HeaderLink>
-			<HeaderLink href="/blog">Blog</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(lang, '/')}>{t('nav.home')}</HeaderLink>
+			<HeaderLink href={getRelativeLocaleUrl(lang, '/blog')}>{t('nav.blog')}</HeaderLink>
 		</div>
 		<div class="social-links">
+			<!-- Language Picker -->
+			<div class="language-picker">
+				<a href={getRelativeLocaleUrl('en', '/')} class={lang === 'en' ? 'active' : ''}>EN</a>
+				<a href={getRelativeLocaleUrl('ko', '/')} class={lang === 'ko' ? 'active' : ''}>KO</a>
+				<a href={getRelativeLocaleUrl('ja', '/')} class={lang === 'ja' ? 'active' : ''}>JA</a>
+				<a href={getRelativeLocaleUrl('zh', '/')} class={lang === 'zh' ? 'active' : ''}>ZH</a>
+			</div>
+			<!-- GitHub Link -->
 			<a href="https://github.com/0xDaz" target="_blank" aria-label="GitHub">
 				<svg viewBox="0 0 16 16" aria-hidden="true" width="24" height="24"
 					><path
@@ -98,7 +111,7 @@ import HeaderLink from './HeaderLink.astro';
 
 	.social-links {
 		display: flex;
-		gap: 0.5em;
+		gap: 0.75em;
 		align-items: center;
 		justify-self: end;
 	}
@@ -119,12 +132,40 @@ import HeaderLink from './HeaderLink.astro';
 		transform: translateY(-2px);
 	}
 
+	.language-picker {
+		display: flex;
+		gap: 0.25em;
+		padding: 0.25em;
+		background: var(--bg-tertiary);
+		border-radius: 8px;
+	}
+
+	.language-picker a {
+		padding: 0.25em 0.5em;
+		color: var(--text-secondary);
+		text-decoration: none;
+		font-size: 0.85em;
+		font-weight: 600;
+		border-radius: 4px;
+		transition: all 0.2s ease;
+	}
+
+	.language-picker a:hover {
+		color: var(--text-primary);
+		background: var(--bg-secondary);
+	}
+
+	.language-picker a.active {
+		color: var(--accent-primary);
+		background: rgba(139, 92, 246, 0.1);
+	}
+
 	@media (max-width: 720px) {
 		nav {
 			padding: 1em;
 		}
 		.social-links {
-			display: none;
+			gap: 0.5em;
 		}
 		.internal-links {
 			gap: 0;
@@ -132,6 +173,10 @@ import HeaderLink from './HeaderLink.astro';
 		nav a {
 			padding: 0.5em;
 			font-size: 0.9em;
+		}
+		.language-picker a {
+			padding: 0.25em 0.4em;
+			font-size: 0.8em;
 		}
 	}
 </style>

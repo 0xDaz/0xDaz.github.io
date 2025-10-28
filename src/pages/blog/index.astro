@@ -5,17 +5,27 @@ import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 import Header from '../../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../../consts';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { SITE_TITLE } from '../../consts';
 
-const posts = (await getCollection('blog'))
-	.filter(post => !post.data.draft)
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const posts = allPosts
+	.filter(post => {
+		if (lang === 'en') {
+			return post.id.startsWith('en/');
+		}
+		return post.id.startsWith(`${lang}/`);
+	})
 	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
 <!doctype html>
-<html lang="ko">
+<html lang={lang}>
 	<head>
-		<BaseHead title={`Blog | ${SITE_TITLE}`} description={SITE_DESCRIPTION} />
+		<BaseHead title={`${t('nav.blog')} | ${SITE_TITLE}`} />
 		<style>
 			main {
 				max-width: 1200px;

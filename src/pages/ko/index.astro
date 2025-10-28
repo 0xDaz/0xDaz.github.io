@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
-import { SITE_TITLE } from '../consts';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import Header from '../../components/Header.astro';
+import { getLangFromUrl, useTranslations } from '../../i18n/utils';
+import { SITE_TITLE } from '../../consts';
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -45,24 +45,12 @@ const posts = allPosts
 				margin-bottom: 0.5em;
 				line-height: 1.1;
 				color: var(--text-primary);
-				background: none;
-				-webkit-text-fill-color: unset;
 			}
 
 			.hero .subtitle {
 				font-size: 1.4em;
 				color: var(--text-secondary);
 				margin-bottom: 1.5em;
-			}
-
-			.hero .subtitle a {
-				color: var(--accent-secondary);
-				text-decoration: none;
-				transition: all 0.2s ease;
-			}
-
-			.hero .subtitle a:hover {
-				color: var(--accent-primary);
 			}
 
 			.cta-button {
@@ -125,9 +113,7 @@ const posts = allPosts
 			.post-card:hover {
 				transform: translateY(-8px);
 				border-color: var(--accent-primary);
-				box-shadow:
-					0 0 32px var(--glow-primary),
-					0 12px 48px rgba(0, 0, 0, 0.5);
+				box-shadow: 0 0 32px var(--glow-primary);
 			}
 
 			.post-card a {
@@ -168,14 +154,6 @@ const posts = allPosts
 				color: var(--text-primary);
 				font-size: 1.25em;
 				line-height: 1.4;
-				transition: all 0.2s ease;
-			}
-
-			.post-card:hover .post-title {
-				background: var(--accent-gradient);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
 			}
 
 			@media (max-width: 768px) {
@@ -207,7 +185,7 @@ const posts = allPosts
 			<section class="hero">
 				<h1>0xDaz</h1>
 				<p class="subtitle">
-					📍 Seoul • 💼 Programmer • 📧 <a href="mailto:esnetni2@gmail.com">esnetni2@gmail.com</a>
+					📍 서울 • 💼 프로그래머 • 📧 <a href="mailto:esnetni2@gmail.com">esnetni2@gmail.com</a>
 				</p>
 				<a href="/blog" class="cta-button">{t('nav.blog')}</a>
 			</section>
