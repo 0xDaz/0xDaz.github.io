@@ -1,10 +1,10 @@
 ---
 title: "JEPA vs LLM: 차세대 AI 아키텍처 이해하기"
-date: 2025-10-28T22:31:16+09:00
-draft: false
+description: "JEPA와 LLM의 핵심 차이점부터 2025년 최신 발전까지. 차세대 AI 아키텍처 JEPA의 작동 원리와 상용 서비스 현황 완벽 가이드"
+pubDate: 2025-10-28T22:31:16+09:00
 tags: ["AI", "JEPA", "LLM", "Machine Learning", "Meta AI", "V-JEPA", "머신러닝", "딥러닝", "Yann LeCun"]
 categories: ["AI"]
-description: "JEPA와 LLM의 핵심 차이점부터 2025년 최신 발전까지. 차세대 AI 아키텍처 JEPA의 작동 원리와 상용 서비스 현황 완벽 가이드"
+draft: false
 ---
 
 ## JEPA와 LLM의 핵심 차이점
