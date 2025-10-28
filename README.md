@@ -1,56 +1,39 @@
-# 0xDaz.github.io - Astro Version
+# 0xDaz.github.io
 
-Hugo 블로그를 Astro로 전환한 버전입니다.
+개인 개발 블로그
 
 ## 프로젝트 정보
 
 - **프레임워크**: Astro 5.15
 - **타입스크립트**: Strict 모드
 - **배포**: GitHub Pages
-- **원본**: Hugo + PaperMod 테마
-
-## 마이그레이션 완료 항목
-
-- ✅ 15개 블로그 포스트 마이그레이션 (DNDLITE 관련 콘텐츠 제외)
-- ✅ 이미지 및 정적 파일 복사
-- ✅ 카테고리/태그 시스템 설정
-- ✅ RSS 피드 생성
-- ✅ Sitemap 생성
-- ✅ GitHub Actions 배포 설정
-
-## 제외된 콘텐츠
-
-- `prd-by-agent.md` (DNDLITE PRD 문서)
-- `_index.md` 파일들 (카테고리 인덱스)
 
 ## 🚀 Project Structure
 
-Inside of your Astro project, you'll see the following folders and files:
-
 ```text
 ├── public/
+│   ├── images/          # 블로그 이미지
+│   └── fonts/           # 웹 폰트
 ├── src/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── components/      # Astro 컴포넌트
+│   ├── content/
+│   │   └── blog/        # 블로그 포스트 (Markdown)
+│   ├── layouts/         # 페이지 레이아웃
+│   ├── pages/           # 라우팅
+│   └── styles/          # 글로벌 스타일
 ├── astro.config.mjs
-├── README.md
 ├── package.json
 └── tsconfig.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 📝 콘텐츠
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
-
-Any static assets, like images, can be placed in the `public/` directory.
+블로그 포스트는 `src/content/blog/` 디렉토리에 카테고리별로 정리되어 있습니다:
+- `AI/` - AI 개발 관련 포스트
+- `GameDev/` - 게임 개발 포스트
+- `Env/` - 개발 환경 설정
 
 ## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
@@ -63,7 +46,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## 배포
 
-`astro-migration` 브랜치에 푸시하면 GitHub Actions가 자동으로 빌드 및 배포합니다.
+`main` 브랜치에 푸시하면 GitHub Actions가 자동으로 빌드 및 배포합니다.
 
 ## 기술 스택
 
@@ -76,4 +59,4 @@ All commands are run from the root of the project, from a terminal:
 ## 참고 링크
 
 - [Astro 공식 문서](https://docs.astro.build)
-- [원본 Hugo 블로그](https://github.com/0xDaz/0xD.github.io)
+- [Content Collections](https://docs.astro.build/en/guides/content-collections/)

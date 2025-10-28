@@ -5,11 +5,8 @@
 ## 프로젝트 정보
 
 **프로젝트명**: 0xDaz.github.io
-**타입**: Hugo 정적 블로그
-**테마**: PaperMod
-**주제**: GameDevLog (게임 개발 로그)
-
-**중요**: 블로그 구조 및 커스터마이징 정보는 `LAYOUT.md` 참조
+**타입**: Astro 정적 블로그
+**주제**: 개발 블로그 (AI, GameDev, Env)
 
 ## 블로그 포스트 작성 스타일
 
@@ -31,7 +28,8 @@
 ```yaml
 ---
 title: "포스트 제목"
-date: YYYY-MM-DDTHH:MM:SS+09:00
+description: "포스트 설명 (선택)"
+pubDate: YYYY-MM-DDTHH:MM:SS+09:00
 tags: ["Tag1", "Tag2", "Tag3"]
 categories: ["Category"]
 draft: false
@@ -41,7 +39,7 @@ draft: false
 **날짜/시간 작성 규칙:**
 - 형식: `YYYY-MM-DDTHH:MM:SS+09:00` (ISO 8601)
 - **반드시 현재 시간 또는 과거 시간 사용**
-- 미래 시간 사용 시 Hugo에서 포스트가 표시되지 않음
+- 필드명: `pubDate` (Astro Content Collections 스키마)
 - 예시: `2025-10-25T01:30:00+09:00`
 
 **태그 작성 원칙:**
@@ -71,7 +69,7 @@ draft: false
 
 **경로**: `/images/파일명.확장자`
 
-**위치**: static/images/ 디렉토리
+**위치**: `public/images/` 디렉토리
 
 **삽입 형식**:
 ```markdown
@@ -80,19 +78,23 @@ draft: false
 
 ## 구조
 
-`content/Env/` - 개발 환경 설정 | `content/posts/` - 일반 포스트
+- `src/content/blog/AI/` - AI 개발 관련
+- `src/content/blog/GameDev/` - 게임 개발
+- `src/content/blog/Env/` - 개발 환경 설정
 
 ## 명령어
 
-로컬 서버: `hugo server -D`
-새 포스트: `hugo new content [경로]/[파일명].md`
-빌드: `hugo --minify`
+- 로컬 서버: `npm run dev`
+- 새 포스트: `src/content/blog/[카테고리]/` 디렉토리에 `.md` 파일 생성
+- 빌드: `npm run build`
+- 미리보기: `npm run preview`
 
 ## Git & 배포
 
-1. 작성 → 2. 테스트 (`hugo server -D`) → 3. 커밋/푸시 → 4. GitHub Actions 자동 배포
+1. 작성 → 2. 테스트 (`npm run dev`) → 3. 커밋/푸시 → 4. GitHub Actions 자동 배포
 
 **주의:**
-- draft: false (배포 필수)
-- 이미지: static/images/
-- 파일명: 소문자-하이픈 (예: everythingtoolbar.md)
+- `draft: false` (배포 필수)
+- 이미지: `public/images/`
+- 파일명: 소문자-하이픈 (예: `everythingtoolbar.md`)
+- Front matter는 반드시 `pubDate` 사용 (Astro Content Collections 스키마)
