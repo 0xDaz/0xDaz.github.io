@@ -1,10 +1,10 @@
 ---
 title: "2025 OCR AI 도구 비교: Docling vs PaddleOCR-VL vs DeepSeek-OCR"
-date: 2025-10-28T22:29:01+09:00
-draft: false
+description: "최근 화제인 Docling, PaddleOCR-VL, DeepSeek-OCR의 차이점과 커뮤니티 반응 비교"
+pubDate: 2025-10-28T22:29:01+09:00
 tags: ["AI", "OCR", "Docling", "PaddleOCR", "DeepSeek", "Document Processing", "VLM"]
 categories: ["AI"]
-description: "최근 화제인 Docling, PaddleOCR-VL, DeepSeek-OCR의 차이점과 커뮤니티 반응 비교"
+draft: false
 ---
 
 ## 개요
