@@ -15,7 +15,8 @@ const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts
 	.filter(post => {
 		if (lang === 'en') {
-			return post.id.startsWith('en/');
+			// English posts have no language prefix (AI/, GameDev/, Env/)
+			return !post.id.startsWith('en/') && !post.id.startsWith('ko/') && !post.id.startsWith('ja/') && !post.id.startsWith('zh/');
 		}
 		return post.id.startsWith(`${lang}/`);
 	})
@@ -219,10 +220,13 @@ const posts = allPosts
 				</div>
 				<ul class="posts-grid">
 					{
-						posts.map((post) => (
+						posts.map((post) => {
+							// Convert to lowercase to match Astro's URL generation
+							const slug = post.id.toLowerCase();
+							return (
 							<li>
 								<article class="post-card">
-									<a href={`/blog/${post.id}/`}>
+									<a href={`/blog/${slug}/`}>
 										<div class="post-content">
 											<div class="post-meta">
 												<span class="post-date">
@@ -237,7 +241,7 @@ const posts = allPosts
 									</a>
 								</article>
 							</li>
-						))
+						)})
 					}
 				</ul>
 			</section>
