@@ -9,7 +9,7 @@ import { getLangFromUrl, useTranslations } from '../../../i18n/utils';
 import { SITE_TITLE } from '../../../consts';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations('en'); // Always use English for UI
 
 const allPosts = await getCollection('blog', ({ data }) => !data.draft);
 const posts = allPosts
@@ -212,12 +212,12 @@ const posts = allPosts
 			<ul class="posts-grid">
 				{
 					posts.map((post) => {
-						// Remove language prefix from post.id (e.g., 'en/ai/post' -> 'ai/post')
+						// Remove language prefix from post.id (e.g., 'ko/ai/post' -> 'ai/post')
 						const pathWithoutLang = post.id.split('/').slice(1).join('/');
 						return (
 						<li>
 							<article class="post-card">
-								<a href={`/en/blog/${pathWithoutLang}/`}>
+								<a href={`/ko/blog/${pathWithoutLang}/`}>
 									{post.data.heroImage && (
 										<div class="post-image">
 											<Image width={640} height={360} src={post.data.heroImage} alt="" />

@@ -5,9 +5,9 @@ import BlogPost from '../../../layouts/BlogPost.astro';
 export async function getStaticPaths() {
 	const posts = await getCollection('blog');
 	return posts
-		.filter(post => post.id.startsWith('en/'))
+		.filter(post => post.id.startsWith('ko/'))
 		.map((post) => {
-			// Remove language prefix from post.id (e.g., 'en/ai/post' -> 'ai/post')
+			// Remove language prefix from post.id (e.g., 'ko/ai/post' -> 'ai/post')
 			const slug = post.id.split('/').slice(1).join('/');
 			return {
 				params: { slug },

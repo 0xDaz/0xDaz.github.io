@@ -1,8 +1,14 @@
 import { ui, defaultLang } from './ui';
 
 export function getLangFromUrl(url: URL) {
-	const [, lang] = url.pathname.split('/');
-	if (lang in ui) return lang as keyof typeof ui;
+	// Check all path segments for a language code
+	// Handles both /lang/... and /blog/lang/... patterns
+	const segments = url.pathname.split('/').filter(Boolean);
+	for (const segment of segments) {
+		if (segment in ui) {
+			return segment as keyof typeof ui;
+		}
+	}
 	return defaultLang;
 }
 
@@ -19,3 +25,23 @@ export function useTranslatedPath(lang: keyof typeof ui) {
 }
 
 export const showDefaultLang = false;
+
+// Switch language while preserving the current path
+// Handles both URL prefix patterns (/en/...) and content path patterns (/blog/en/...)
+export function switchLanguage(url: URL, newLang: keyof typeof ui) {
+	const currentPath = url.pathname;
+	const currentLang = getLangFromUrl(url);
+
+	// Replace the current language code with the new one in the path
+	// This handles both /lang/... and /blog/lang/... patterns
+	const langPattern = new RegExp(`/(${currentLang})(/|$)`, 'g');
+	let newPath = currentPath.replace(langPattern, `/${newLang}$2`);
+
+	// If no replacement happened (e.g., /blog without language prefix)
+	// Add the language prefix at the start
+	if (newPath === currentPath) {
+		newPath = `/${newLang}${currentPath}`;
+	}
+
+	return newPath;
+}

@@ -197,10 +197,12 @@ const posts = allPosts
 				</div>
 				<ul class="posts-grid">
 					{
-						posts.map((post) => (
+						posts.map((post) => {
+							const pathWithoutLang = post.id.split('/').slice(1).join('/');
+							return (
 							<li>
 								<article class="post-card">
-									<a href={`/blog/${post.id}/`}>
+									<a href={`/en/blog/${pathWithoutLang}/`}>
 										<div class="post-content">
 											<div class="post-meta">
 												<span class="post-date">
@@ -215,7 +217,7 @@ const posts = allPosts
 									</a>
 								</article>
 							</li>
-						))
+						)})
 					}
 				</ul>
 			</section>

@@ -1,11 +1,11 @@
 ---
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
-import { getLangFromUrl, useTranslations } from '../i18n/utils';
+import { getLangFromUrl, useTranslations, switchLanguage } from '../i18n/utils';
 import { getRelativeLocaleUrl } from 'astro:i18n';
 
 const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
+const t = useTranslations('en'); // Always use English for UI
 ---
 
 <header>
@@ -18,10 +18,10 @@ const t = useTranslations(lang);
 		<div class="social-links">
 			<!-- Language Picker -->
 			<div class="language-picker">
-				<a href={getRelativeLocaleUrl('en', '/')} class={lang === 'en' ? 'active' : ''}>EN</a>
-				<a href={getRelativeLocaleUrl('ko', '/')} class={lang === 'ko' ? 'active' : ''}>KO</a>
-				<a href={getRelativeLocaleUrl('ja', '/')} class={lang === 'ja' ? 'active' : ''}>JA</a>
-				<a href={getRelativeLocaleUrl('zh', '/')} class={lang === 'zh' ? 'active' : ''}>ZH</a>
+				<a href={switchLanguage(Astro.url, 'en')} class={lang === 'en' ? 'active' : ''}>EN</a>
+				<a href={switchLanguage(Astro.url, 'ko')} class={lang === 'ko' ? 'active' : ''}>KO</a>
+				<a href={switchLanguage(Astro.url, 'ja')} class={lang === 'ja' ? 'active' : ''}>JA</a>
+				<a href={switchLanguage(Astro.url, 'zh')} class={lang === 'zh' ? 'active' : ''}>ZH</a>
 			</div>
 			<!-- GitHub Link -->
 			<a href="https://github.com/0xDaz" target="_blank" aria-label="GitHub">
