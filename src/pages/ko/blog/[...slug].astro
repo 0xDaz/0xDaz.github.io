@@ -7,8 +7,8 @@ export async function getStaticPaths() {
 	return posts
 		.filter(post => post.id.startsWith('ko/'))
 		.map((post) => {
-			// Remove language prefix from post.id (e.g., 'ko/ai/post' -> 'ai/post')
-			const slug = post.id.split('/').slice(1).join('/');
+			// Remove language prefix and convert to lowercase (e.g., 'ko/AI/post' -> 'ai/post')
+			const slug = post.id.split('/').slice(1).join('/').toLowerCase();
 			return {
 				params: { slug },
 				props: post,

@@ -210,10 +210,12 @@ const posts = allPosts
 			<ul class="posts-grid">
 				{
 					posts.map((post) => {
+						// Convert to lowercase to match Astro's URL generation
+						const slug = post.id.toLowerCase();
 						return (
 						<li>
 							<article class="post-card">
-								<a href={`/blog/${post.id}/`}>
+								<a href={`/blog/${slug}/`}>
 									{post.data.heroImage && (
 										<div class="post-image">
 											<Image width={640} height={360} src={post.data.heroImage} alt="" />

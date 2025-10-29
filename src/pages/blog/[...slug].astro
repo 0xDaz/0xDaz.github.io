@@ -8,7 +8,8 @@ export async function getStaticPaths() {
 		.filter(post => !post.id.startsWith('en/') && !post.id.startsWith('ko/') && !post.id.startsWith('ja/') && !post.id.startsWith('zh/'))
 		.map((post) => {
 			return {
-				params: { slug: post.id },
+				// Convert to lowercase to match Astro's URL generation
+				params: { slug: post.id.toLowerCase() },
 				props: post,
 			};
 		});

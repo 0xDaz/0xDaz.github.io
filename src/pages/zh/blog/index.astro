@@ -212,8 +212,8 @@ const posts = allPosts
 			<ul class="posts-grid">
 				{
 					posts.map((post) => {
-						// Remove language prefix from post.id (e.g., 'zh/ai/post' -> 'ai/post')
-						const pathWithoutLang = post.id.split('/').slice(1).join('/');
+						// Remove language prefix and convert to lowercase (e.g., 'zh/AI/post' -> 'ai/post')
+						const pathWithoutLang = post.id.split('/').slice(1).join('/').toLowerCase();
 						return (
 						<li>
 							<article class="post-card">
