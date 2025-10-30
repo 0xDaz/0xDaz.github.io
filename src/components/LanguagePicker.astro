@@ -35,9 +35,17 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => {
 			post.id.toLowerCase() === targetPostId.toLowerCase()
 		);
 
-		// If post doesn't exist, fallback to home page of that language
+		// Debug logging (will appear in server logs during build)
+		console.log(`[LanguagePicker] Checking ${lang}:`, {
+			currentSlug,
+			targetPostId,
+			postExists,
+			availablePostIds: allPosts.map(p => p.id).filter(id => id.toLowerCase().includes(currentSlug.toLowerCase().split('/')[0]))
+		});
+
+		// If post doesn't exist, fallback to blog index page of that language
 		if (!postExists) {
-			href = translatePath('/', lang);
+			href = translatePath('/blog/', lang);
 		}
 	}
 
@@ -46,42 +54,9 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => {
 ---
 
 <div class="language-picker">
-	<ul>
-		{languageLinks.map(({ lang, label, href }) => (
-			<li>
-				<a href={href} class={lang === currentLang ? 'active' : ''}>
-					{label}
-				</a>
-			</li>
-		))}
-	</ul>
+	{languageLinks.map(({ lang, href }) => (
+		<a href={href} class={lang === currentLang ? 'active' : ''}>
+			{lang.toUpperCase()}
+		</a>
+	))}
 </div>
-
-<style>
-	.language-picker {
-		display: flex;
-		gap: 0.5rem;
-	}
-
-	.language-picker ul {
-		display: flex;
-		gap: 0.5rem;
-		list-style: none;
-		margin: 0;
-		padding: 0;
-	}
-
-	.language-picker a {
-		padding: 0.25rem 0.5rem;
-		border-radius: 4px;
-		text-decoration: none;
-		color: var(--text-color);
-		transition: background-color 0.2s;
-	}
-
-	.language-picker a:hover,
-	.language-picker a.active {
-		background-color: var(--accent);
-		color: white;
-	}
-</style>
