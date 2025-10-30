@@ -1,5 +1,6 @@
 ---
 title: "Context7 MCP: Inject Latest Docs into AI Coding Assistant"
+description: "MCP server that injects real-time library documentation into LLMs. Eliminates AI hallucination by providing accurate API references and code examples."
 pubDate: 2025-10-25T01:30:00+09:00
 tags: ["Claude", "MCP", "Context7", "Claude Code", "Claude Desktop", "Cursor", "Windsurf"]
 categories: ["AI"]

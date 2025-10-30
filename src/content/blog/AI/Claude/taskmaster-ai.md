@@ -1,5 +1,6 @@
 ---
 title: "Taskmaster AI: Task Management System for AI-Driven Development"
+description: "AI-powered task management for Claude and Cursor. Auto-parse PRDs, generate subtasks, manage dependencies, and track progress with research mode."
 pubDate: 2025-10-25T01:45:00+09:00
 tags: ["Claude", "MCP", "Taskmaster", "Task Management", "AI Development", "Cursor", "Claude Code"]
 categories: ["AI"]

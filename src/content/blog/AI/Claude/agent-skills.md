@@ -1,5 +1,6 @@
 ---
 title: "Claude Skills"
+description: "Extend Claude with composable skills and Python code. Just-in-time loading saves tokens. Includes official Office tools for PDF, Excel, Word, PowerPoint."
 pubDate: 2025-10-24T15:00:00+09:00
 tags: ["Claude", "AI", "Skills", "Claude Code", "Anthropic", "Office", "PDF", "Excel", "Word", "PowerPoint"]
 categories: ["AI"]

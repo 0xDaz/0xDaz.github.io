@@ -1,5 +1,6 @@
 ---
 title: "Using MiniMax M2 with Claude Code"
+description: "Setup MiniMax M2 in Claude Code. 2x faster than Sonnet 4.5, 8% of the price. Anthropic API compatible. Free until November 7th."
 pubDate: 2025-10-29T22:40:00+09:00
 draft: false
 tags: ["Claude Code", "MiniMax M2", "Setup", "Free", "API"]

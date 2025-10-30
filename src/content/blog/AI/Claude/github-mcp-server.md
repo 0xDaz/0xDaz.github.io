@@ -1,5 +1,6 @@
 ---
 title: "GitHub MCP Server"
+description: "Enable Claude to use GitHub API directly. Query repos, manage issues, create PRs from conversation. Remote and Docker-based local server support."
 pubDate: 2025-10-25T01:00:00+09:00
 tags: ["Claude", "MCP", "GitHub", "Claude Code", "Claude Desktop", "Docker"]
 categories: ["AI"]

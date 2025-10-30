@@ -1,5 +1,6 @@
 ---
 title: "Playwright MCP: Browser Automation for LLMs"
+description: "Fast browser automation using accessibility tree instead of screenshots. No vision model needed. Deterministic web scraping, testing, monitoring."
 pubDate: 2025-10-25T01:18:00+09:00
 tags: ["Claude", "MCP", "Playwright", "Browser Automation", "Claude Code", "Claude Desktop"]
 categories: ["AI"]
