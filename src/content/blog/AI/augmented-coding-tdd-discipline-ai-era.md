@@ -83,6 +83,7 @@ Kent Beck has been programming for 52 years. If he needs TDD guardrails for AI a
 
 ## References
 
-- Kent Beck, "Augmented Coding: Beyond the Vibes" (Substack)
+- [Kent Beck's CLAUDE.md - TDD with AI Guide](https://github.com/KentBeck/BPlusTree3/blob/main/rust/docs/CLAUDE.md)
+- [Kent Beck, "Augmented Coding: Beyond the Vibes" (Substack)](https://tidyfirst.substack.com/p/augmented-coding-beyond-the-vibes)
 - "Test-Driven Development and LLM-based Code Generation" (ACM/IEEE Research)
 - CTO Survey on AI-Caused Production Disasters (2025)
