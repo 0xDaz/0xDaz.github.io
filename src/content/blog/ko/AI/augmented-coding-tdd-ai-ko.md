@@ -5,6 +5,7 @@ pubDate: 2025-10-31T01:21:36+09:00
 tags: ["TDD", "AI", "LLM", "Kent Beck", "Augmented Coding", "Software Engineering"]
 categories: ["AI"]
 draft: false
+translationKey: "augmented-coding-tdd-ai"
 ---
 
 ## Vibe Coding vs Augmented Coding
