@@ -7,7 +7,7 @@ categories: ["AI"]
 draft: false
 ---
 
-## The Great Divide: Vibe Coding vs Augmented Coding
+## Vibe Coding vs Augmented Coding
 
 The AI coding revolution has created a fundamental split in how developers work with Large Language Models. On one side: **vibe coding**—building software with LLMs without reviewing the code, essentially "forgetting that the code even exists." Popularized by Andrej Karpathy in February 2025, it promises rapid prototyping through high-level specifications and long feedback loops.
 
@@ -15,9 +15,9 @@ On the other side: **augmented coding**—caring deeply about code quality, comp
 
 The consequences of choosing wrong? A recent survey of 18 CTOs revealed that **16 reported AI-caused production disasters**. The difference isn't the technology—it's the discipline.
 
-## Kent Beck's Superpower: TDD with AI
+## Kent Beck and TDD Meet AI
 
-After 52 years of programming, Kent Beck is re-energized by AI coding tools. But he's not vibe coding. In his Substack essay "Augmented Coding: Beyond the Vibes," Beck calls Test-Driven Development a **"superpower"** when working with AI agents.
+After 52 years of programming, Kent Beck found renewed energy in AI coding tools. But he's not vibe coding. In his Substack essay "Augmented Coding: Beyond the Vibes," Beck calls Test-Driven Development a **"superpower"** when working with AI agents.
 
 His key insight: TDD provides the **guard rails** that prevent AI models from running amok. His approach is clear:
 
