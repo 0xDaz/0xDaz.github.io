@@ -30,8 +30,9 @@ const languageLinks = Object.entries(languages).map(([lang, label]) => {
 	if (isBlogPost && currentSlug && lang !== currentLang) {
 		// Check if post exists in target language
 		const targetLangPrefix = lang === defaultLang ? '' : `${lang}/`;
+		const targetPostId = `${targetLangPrefix}${currentSlug}`;
 		const postExists = allPosts.some(post =>
-			post.id === `${targetLangPrefix}${currentSlug}.md`
+			post.id.toLowerCase() === targetPostId.toLowerCase()
 		);
 
 		// If post doesn't exist, fallback to home page of that language
