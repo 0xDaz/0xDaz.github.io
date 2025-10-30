@@ -1,15 +1,54 @@
 ---
-import { languages } from '../i18n/ui';
-import { getLangFromUrl, switchLanguage } from '../i18n/utils';
+import { getCollection } from 'astro:content';
+import { languages, defaultLang } from '../i18n/ui';
+import { getLangFromUrl, switchLanguage, useTranslatedPath } from '../i18n/utils';
 
 const currentLang = getLangFromUrl(Astro.url);
+const translatePath = useTranslatedPath(currentLang);
+
+// Get all blog posts to check if translation exists
+const allPosts = await getCollection('blog');
+
+// Extract the slug from current URL (e.g., "AI/post-name" from "/blog/AI/post-name" or "/ko/blog/AI/post-name")
+const pathname = Astro.url.pathname;
+const isBlogPost = pathname.includes('/blog/');
+let currentSlug = '';
+
+if (isBlogPost) {
+	// Remove language prefix and /blog/ to get the slug
+	const pathWithoutLang = currentLang !== defaultLang
+		? pathname.replace(new RegExp(`^/${currentLang}`), '')
+		: pathname;
+	currentSlug = pathWithoutLang.replace(/^\/blog\//, '').replace(/\/$/, '');
+}
+
+// For each language, check if the post exists
+const languageLinks = Object.entries(languages).map(([lang, label]) => {
+	let href = switchLanguage(Astro.url, lang);
+
+	// If this is a blog post, check if translation exists
+	if (isBlogPost && currentSlug && lang !== currentLang) {
+		// Check if post exists in target language
+		const targetLangPrefix = lang === defaultLang ? '' : `${lang}/`;
+		const postExists = allPosts.some(post =>
+			post.id === `${targetLangPrefix}${currentSlug}.md`
+		);
+
+		// If post doesn't exist, fallback to home page of that language
+		if (!postExists) {
+			href = translatePath('/', lang);
+		}
+	}
+
+	return { lang, label, href };
+});
 ---
 
 <div class="language-picker">
 	<ul>
-		{Object.entries(languages).map(([lang, label]) => (
+		{languageLinks.map(({ lang, label, href }) => (
 			<li>
-				<a href={switchLanguage(Astro.url, lang)} class={lang === currentLang ? 'active' : ''}>
+				<a href={href} class={lang === currentLang ? 'active' : ''}>
 					{label}
 				</a>
 			</li>
