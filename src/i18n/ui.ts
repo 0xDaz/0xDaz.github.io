@@ -11,7 +11,7 @@ export const ui = {
 	en: {
 		'nav.home': 'Home',
 		'nav.about': 'About',
-		'nav.blog': 'Blog',
+		'nav.blog': 'Posts',
 		'nav.categories': 'Categories',
 		'nav.tags': 'Tags',
 		'footer.poweredBy': 'Powered by Astro',
@@ -28,7 +28,7 @@ export const ui = {
 	ko: {
 		'nav.home': '홈',
 		'nav.about': '소개',
-		'nav.blog': '블로그',
+		'nav.blog': '글',
 		'nav.categories': '카테고리',
 		'nav.tags': '태그',
 		'footer.poweredBy': 'Powered by Astro',
@@ -45,7 +45,7 @@ export const ui = {
 	ja: {
 		'nav.home': 'ホーム',
 		'nav.about': '概要',
-		'nav.blog': 'ブログ',
+		'nav.blog': '投稿',
 		'nav.categories': 'カテゴリー',
 		'nav.tags': 'タグ',
 		'footer.poweredBy': 'Powered by Astro',
@@ -62,7 +62,7 @@ export const ui = {
 	zh: {
 		'nav.home': '首页',
 		'nav.about': '关于',
-		'nav.blog': '博客',
+		'nav.blog': '文章',
 		'nav.categories': '分类',
 		'nav.tags': '标签',
 		'footer.poweredBy': 'Powered by Astro',

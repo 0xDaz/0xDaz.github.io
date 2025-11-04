@@ -32,175 +32,88 @@ const posts = allPosts
 			description="Developer blog exploring AI development, game development with Unity, and productivity tools"
 		/>
 		<style>
-			main {
-				max-width: 1200px;
-				width: 100%;
-				padding: 3em 2em;
-			}
-
 			.hero {
-				text-align: center;
-				padding: 4em 0;
-				margin-bottom: 4em;
+				margin-bottom: 3em;
 			}
 
 			.hero h1 {
-				font-size: 3.5em;
+				font-size: 3em;
 				margin-bottom: 0.5em;
-				line-height: 1.1;
-				color: var(--text-primary);
-				background: none;
-				-webkit-text-fill-color: unset;
 			}
 
 			.hero .subtitle {
-				font-size: 1.4em;
-				color: var(--text-secondary);
+				font-size: 1.2em;
+				color: var(--color-accent);
 				margin-bottom: 1.5em;
 			}
 
 			.hero .subtitle a {
-				color: var(--accent-secondary);
-				text-decoration: none;
-				transition: all 0.2s ease;
-			}
-
-			.hero .subtitle a:hover {
-				color: var(--accent-primary);
-			}
-
-			.cta-button {
-				display: inline-block;
-				padding: 1em 2em;
-				background: var(--accent-gradient);
-				color: white;
-				border-radius: 12px;
-				font-weight: 600;
-				text-decoration: none;
-				transition: all 0.3s ease;
-				box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);
-			}
-
-			.cta-button:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 12px 32px rgba(139, 92, 246, 0.4);
+				color: var(--color-link);
 			}
 
 			.section-header {
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				margin-bottom: 2em;
+				margin: 3em 0 1.5em 0;
+				border-bottom: 1px dashed #666;
+				padding-bottom: 0.5em;
 			}
 
 			.section-title {
-				font-size: 2em;
+				font-size: 1.5em;
 				margin: 0;
 			}
 
-			.section-link {
-				color: var(--accent-secondary);
-				text-decoration: none;
-				font-weight: 600;
-				transition: all 0.2s ease;
-			}
-
-			.section-link:hover {
-				color: var(--accent-primary);
-			}
-
-			.posts-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-				gap: 2em;
+			.posts-list {
 				list-style: none;
 				margin: 0;
 				padding: 0;
 			}
 
-			.post-card {
-				background: var(--bg-card);
-				border: 1px solid var(--border-color);
-				border-radius: 16px;
-				overflow: hidden;
-				transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+			.post-item {
+				padding: 1em 0;
+				border-bottom: 1px dashed #ddd;
 			}
 
-			.post-card:hover {
-				transform: translateY(-8px);
-				border-color: var(--accent-primary);
-				box-shadow:
-					0 0 32px var(--glow-primary),
-					0 12px 48px rgba(0, 0, 0, 0.5);
+			.post-item:last-child {
+				border-bottom: none;
 			}
 
-			.post-card a {
+			.post-item a {
+				display: grid;
+				grid-template-columns: auto 1fr;
+				gap: 1em;
 				text-decoration: none;
-				color: inherit;
-				display: block;
-			}
-
-			.post-content {
-				padding: 1.5em;
-			}
-
-			.post-meta {
-				display: flex;
-				align-items: center;
-				gap: 0.75em;
-				margin-bottom: 1em;
 			}
 
 			.post-date {
-				color: var(--text-muted);
-				font-size: 0.875em;
-				font-weight: 500;
-			}
-
-			.post-category {
-				padding: 0.25em 0.75em;
-				background: var(--accent-gradient);
-				color: white;
-				border-radius: 12px;
-				font-size: 0.75em;
-				font-weight: 600;
-				text-transform: uppercase;
+				color: var(--color-accent);
+				font-size: 0.9em;
+				min-width: 100px;
 			}
 
 			.post-title {
-				margin: 0 0 0.5em 0;
-				color: var(--text-primary);
-				font-size: 1.25em;
-				line-height: 1.4;
-				transition: all 0.2s ease;
+				color: var(--color-accent-2);
+				font-weight: 600;
 			}
 
-			.post-card:hover .post-title {
-				background: var(--accent-gradient);
-				-webkit-background-clip: text;
-				-webkit-text-fill-color: transparent;
-				background-clip: text;
+			.post-item a:hover .post-title {
+				color: var(--color-link);
 			}
 
 			@media (max-width: 768px) {
-				main {
-					padding: 2em 1em;
-				}
-
-				.hero {
-					padding: 2em 0;
-				}
-
 				.hero h1 {
-					font-size: 2.5em;
+					font-size: 2em;
 				}
 
 				.hero .subtitle {
-					font-size: 1.2em;
+					font-size: 1em;
 				}
 
-				.posts-grid {
+				.post-item a {
 					grid-template-columns: 1fr;
+					gap: 0.25em;
 				}
 			}
 		</style>
@@ -213,36 +126,25 @@ const posts = allPosts
 				<p class="subtitle">
 					📍 Seoul • 💼 Programmer • 📧 <a href="mailto:esnetni2@gmail.com">esnetni2@gmail.com</a>
 				</p>
-				<a href="/blog" class="cta-button">{t('nav.blog')}</a>
 			</section>
 
 			<section>
 				<div class="section-header">
 					<h2 class="section-title">{t('nav.blog')}</h2>
-					<a href="/blog" class="section-link">{t('readMore')} →</a>
+					<a href="/blog">{t('readMore')} →</a>
 				</div>
-				<ul class="posts-grid">
+				<ul class="posts-list">
 					{
 						posts.map((post) => {
-							// Convert to lowercase to match Astro's URL generation
 							const slug = post.id.toLowerCase();
 							return (
-							<li>
-								<article class="post-card">
-									<a href={`/blog/${slug}/`}>
-										<div class="post-content">
-											<div class="post-meta">
-												<span class="post-date">
-													<FormattedDate date={post.data.pubDate} />
-												</span>
-												{post.data.categories && post.data.categories.length > 0 && (
-													<span class="post-category">{post.data.categories[0]}</span>
-												)}
-											</div>
-											<h3 class="post-title">{post.data.title}</h3>
-										</div>
-									</a>
-								</article>
+							<li class="post-item">
+								<a href={`/blog/${slug}/`}>
+									<span class="post-date">
+										<FormattedDate date={post.data.pubDate} />
+									</span>
+									<span class="post-title">{post.data.title}</span>
+								</a>
 							</li>
 						)})
 					}
