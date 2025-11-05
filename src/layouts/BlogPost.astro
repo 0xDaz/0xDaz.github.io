@@ -34,7 +34,7 @@ const lang = getLangFromUrl(Astro.url);
 			image={heroImage}
 			url={Astro.url}
 		/>
-		<style>
+		<style is:global>
 			main {
 				width: 100%;
 				max-width: 720px;
@@ -124,24 +124,53 @@ const lang = getLangFromUrl(Astro.url);
 			}
 
 			.prose p {
-				margin-bottom: 1.5em;
+				margin-bottom: 1em;
 				line-height: 1.8;
+			}
+
+			/* Style for label-style headings (e.g., **핵심 장점**:) */
+			.prose p strong {
+				font-size: 1.15em;
+				font-weight: 700;
 			}
 
 			.prose h2,
 			.prose h3,
 			.prose h4 {
 				margin-top: 2em;
-				margin-bottom: 0.75em;
+				margin-bottom: 1em;
+			}
+
+			/* Better spacing for headings followed by lists */
+			.prose h4 + ul,
+			.prose h4 + ol {
+				margin-top: 0.75em;
 			}
 
 			.prose ul,
 			.prose ol {
+				margin-top: 0.5em;
 				margin-bottom: 1.5em;
 			}
 
+			/* Tighten spacing between consecutive list items sections */
+			.prose ul + p strong,
+			.prose ol + p strong {
+				display: inline-block;
+				margin-top: 0.5em;
+			}
+
 			.prose li {
-				margin-bottom: 0.5em;
+				margin-bottom: 0.25em;
+			}
+
+			.prose li:last-child {
+				margin-bottom: 0;
+			}
+
+			.prose pre {
+				margin-top: 0.5em;
+				margin-bottom: 1.5em;
 			}
 
 			.back-link {
