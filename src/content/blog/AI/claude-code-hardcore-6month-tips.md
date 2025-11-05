@@ -55,10 +55,12 @@ This post consolidates core tips from the Reddit user (diet103) with my developm
 ```
 
 **How It Works**:
+
 - **UserPromptSubmit Hook**: Analyzes prompt keywords → Auto-injects relevant skills
 - **Stop Event Hook**: Analyzes edited files → Detects risky patterns → Self-check notification
 
 **Results**:
+
 - ❌ Before: Manual "Check BEST_PRACTICES.md" request every time
 - ✅ After: Consistent patterns auto-applied, maintained consistency across 300K LOC
 
@@ -69,16 +71,19 @@ This post consolidates core tips from the Reddit user (diet103) with my developm
 Claude is "an extremely confident junior developer with severe amnesia"
 
 **Starting Large Tasks**:
+
 ```bash
 mkdir -p ~/git/project/dev/active/[task-name]/
 ```
 
 **3 Required Documents**:
+
 - `[task-name]-plan.md` - Approved plan
 - `[task-name]-context.md` - Key files, decisions
 - `[task-name]-tasks.md` - Task checklist
 
 **Resuming Work**:
+
 - Check existing work in `/dev/active/`
 - Read all 3 files before proceeding
 - Update "last updated" timestamp
@@ -114,10 +119,12 @@ module.exports = {
 **Comparison**:
 
 **Before PM2**:
+
 - Me: "Error in email service"
 - Me: [Manually find log, copy → paste into chat]
 
 **After PM2**:
+
 - Me: "Error in email service"
 - Claude: `pm2 logs email --lines 200`
 - Claude: "Found database connection timeout issue"
@@ -160,6 +167,7 @@ module.exports = {
 ```
 
 **Complete Pipeline**:
+
 1. Claude response completes
 2. Hook 1: Prettier formatter
 3. Hook 2: Build checker → Instantly find TypeScript errors
@@ -187,6 +195,7 @@ module.exports = {
 - Browser tool setup
 
 **New Structure**:
+
 ```
 Root CLAUDE.md (100 lines)
 ├── Important universal rules
@@ -229,15 +238,18 @@ Context management via temporary session file write/load
 ### Prompt Optimization
 
 **CLAUDE.md Strategy**:
+
 - Write as compact as possible per Anthropic official guide
 - Main agent acts only as orchestrator
 - Individual subagents work in their own context
 
 **Document Loading Strategy**:
+
 - Architecture, service, environment docs use Just-In-Time load instead of @ reference
 - Only briefly specify path and description
 
 **MCP Optimization**:
+
 - MCP consumes tokens on Load → Replace with skills or minimize activation
 - Activated MCPs: Context7, Serena MCP
 - **Serena MCP**: Token savings via **LSP-based symbol navigation** instead of direct Read when exploring codebase
@@ -245,13 +257,16 @@ Context management via temporary session file write/load
 ### Automation
 
 **Prompt Evaluation Agent**:
+
 - Synthesize prompt-related docs from reliable sources
 - Generate rules → Configure prompt evaluation agent
 
 **Claude Skill**:
+
 - Configure as skills whenever automation needed or executable as code
 
 **Claude Syntax Learning**:
+
 - Ironic that Claude doesn't know hook system, skill schema well
 - Solution: Find docs in Context7 and inject context
 
@@ -292,6 +307,7 @@ Separate agent for Discussion, execute plan in main agent
 ### Differentiation Points
 
 **Reddit User**:
+
 - Centralized skill-rules.json config
 - UserPromptSubmit + Stop event hooks
 - Dev docs system (plan, context, tasks)
@@ -299,6 +315,7 @@ Separate agent for Discussion, execute plan in main agent
 - 850+ markdown documents
 
 **My Setup**:
+
 - P4 (Perforce) integration
 - LSP-based navigation via Serena MCP
 - SPEC/TODO document-centric development
