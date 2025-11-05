@@ -1,0 +1,51 @@
+---
+import type { ImageMetadata } from 'astro';
+import { SITE_TITLE } from '../consts';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	image?: ImageMetadata;
+	url: URL;
+}
+
+const { title, description, pubDate, updatedDate, image, url } = Astro.props;
+
+const schema = {
+	"@context": "https://schema.org",
+	"@type": "BlogPosting",
+	"headline": title,
+	"description": description,
+	"datePublished": pubDate.toISOString(),
+	...(updatedDate && { "dateModified": updatedDate.toISOString() }),
+	"author": {
+		"@type": "Person",
+		"name": "0xDaz",
+		"url": "https://0xdaz.github.io"
+	},
+	"publisher": {
+		"@type": "Organization",
+		"name": SITE_TITLE,
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://0xdaz.github.io/favicon.svg"
+		}
+	},
+	"mainEntityOfPage": {
+		"@type": "WebPage",
+		"@id": url.href
+	},
+	...(image && {
+		"image": {
+			"@type": "ImageObject",
+			"url": new URL(image.src, url).href,
+			"width": image.width,
+			"height": image.height
+		}
+	})
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

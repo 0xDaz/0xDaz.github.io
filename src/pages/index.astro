@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
+import WebSiteSchema from '../components/WebSiteSchema.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
@@ -31,6 +32,7 @@ const posts = allPosts
 			title={SITE_TITLE}
 			description="Developer blog exploring AI development, game development with Unity, and productivity tools"
 		/>
+		<WebSiteSchema />
 		<style>
 			.hero {
 				margin-bottom: 3em;

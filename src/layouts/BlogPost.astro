@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
+import BlogPostSchema from '../components/BlogPostSchema.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
@@ -16,7 +17,23 @@ const lang = getLangFromUrl(Astro.url);
 
 <html lang={lang}>
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={heroImage}
+			type="article"
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			tags={tags}
+		/>
+		<BlogPostSchema
+			title={title}
+			description={description || ''}
+			pubDate={pubDate}
+			updatedDate={updatedDate}
+			image={heroImage}
+			url={Astro.url}
+		/>
 		<style>
 			main {
 				width: 100%;
