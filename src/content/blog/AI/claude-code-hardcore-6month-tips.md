@@ -1,7 +1,7 @@
 ---
 title: "Claude Code Hardcore 6-Month Guide - 300K LOC Refactoring Tips"
 description: "6-month Claude Code experience from Reddit user and my development setup. Skill automation, hook system, and dev docs workflow."
-pubDate: 2025-01-06T02:00:13+09:00
+pubDate: 2025-11-06T02:00:13+09:00
 tags: ["claude-code", "ai-coding", "workflow", "productivity", "automation", "tdd"]
 categories: ["AI"]
 draft: false
