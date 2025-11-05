@@ -120,7 +120,28 @@ const lang = getLangFromUrl(Astro.url);
 				padding: 0;
 				color: var(--color-global-text);
 				font-size: 1em;
-				line-height: 1.65;
+				line-height: 1.8;
+			}
+
+			.prose p {
+				margin-bottom: 1.5em;
+				line-height: 1.8;
+			}
+
+			.prose h2,
+			.prose h3,
+			.prose h4 {
+				margin-top: 2em;
+				margin-bottom: 0.75em;
+			}
+
+			.prose ul,
+			.prose ol {
+				margin-bottom: 1.5em;
+			}
+
+			.prose li {
+				margin-bottom: 0.5em;
 			}
 
 			.back-link {

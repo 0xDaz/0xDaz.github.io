@@ -1,0 +1,91 @@
+
+> 0xd-github-io-astro@0.0.1 build
+> astro build
+
+[2m02:38:43[22m [34m[content][39m Syncing content
+[2m02:38:43[22m [34m[content][39m Synced content
+[2m02:38:43[22m [34m[types][39m Generated [2m370ms[22m
+[2m02:38:43[22m [34m[build][39m output: [34m"static"[39m
+[2m02:38:43[22m [34m[build][39m mode: [34m"static"[39m
+[2m02:38:43[22m [34m[build][39m directory: [34mC:\Dev\0xD.github.io\dist\[39m
+[2m02:38:43[22m [34m[build][39m Collecting build info...
+[2m02:38:43[22m [34m[build][39m [32m✓ Completed in 385ms.[39m
+[2m02:38:43[22m [34m[build][39m Building static entrypoints...
+[33m[1m02:38:44[22m [WARN] [vite][39m [33m"matchHostname", "matchPathname", "matchPort" and "matchProtocol" are imported from external module "@astrojs/internal-helpers/remote" but never used in "node_modules/astro/dist/assets/utils/remotePattern.js" and "node_modules/astro/dist/assets/services/service.js".[39m
+[2m02:38:44[22m [34m[vite][39m [32m✓ built in 738ms[39m
+[2m02:38:44[22m [34m[build][39m [32m✓ Completed in 760ms.[39m
+
+[42m[30m generating static routes [39m[49m
+[2m02:38:44[22m [32m▶[39m src/pages/about.astro
+[2m02:38:44[22m   [34m└─[39m [2m/about/index.html[22m [2m(+9ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/blog/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/blog/index.html[22m [2m(+13ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/blog/[...slug].astro
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/agi-era-developer-thoughts/index.html[22m [2m(+3ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/env/everythingtoolbar/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/jepa-vs-llm-next-generation-ai-architecture/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/docling-paddleocr-deepseek-ocr-comparison/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude-code-mcp-token-troubleshooting/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude-md-best-practices/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/agentic-rag/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/langchain-langgraph-complete-guide/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/baml/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/deepagents-complete-guide/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/gamedev/linear-task-generation/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/agent-skills/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/gamedev/claudecode-game-dev-automation/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/minimax-m2-setup/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/gamedev/prd-by-agent/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/context7-mcp/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/github-mcp-server/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/playwright-mcp/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/blog/ai/claude/taskmaster-ai/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m└─[39m [2m/blog/ai/augmented-coding-tdd-ai/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/ja/blog/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/ja/blog/index.html[22m [2m(+3ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/ja/blog/[...slug].astro
+[2m02:38:44[22m [32m▶[39m src/pages/ja/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/ja/index.html[22m [2m(+3ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/ko/blog/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/ko/blog/index.html[22m [2m(+4ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/ko/blog/[...slug].astro
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/agentic-rag/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/baml/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/agi-era-developer-thoughts/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude-md-best-practices/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/docling-paddleocr-deepseek-ocr-comparison/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/jepa-vs-llm-next-generation-ai-architecture/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude-code-mcp-token-troubleshooting/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/deepagents-complete-guide/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/env/everythingtoolbar/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/langchain-langgraph-complete-guide/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/agent-skills/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/minimax-m2-setup/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/github-mcp-server/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/context7-mcp/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/taskmaster-ai/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/ai/claude/playwright-mcp/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/gamedev/linear-task-generation/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/gamedev/prd-by-agent/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m├─[39m [2m/ko/blog/gamedev/claudecode-game-dev-automation/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m   [34m└─[39m [2m/ko/blog/ai/augmented-coding-tdd-ai/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/ko/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/ko/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m [35mλ[39m src/pages/rss.xml.js
+[2m02:38:44[22m   [34m└─[39m [2m/rss.xml[22m [2m(+3ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/zh/blog/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/zh/blog/index.html[22m [2m(+3ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/zh/blog/[...slug].astro
+[2m02:38:44[22m [32m▶[39m src/pages/zh/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/zh/index.html[22m [2m(+1ms)[22m 
+[2m02:38:44[22m [32m▶[39m src/pages/index.astro
+[2m02:38:44[22m   [34m└─[39m [2m/index.html[22m [2m(+2ms)[22m 
+[2m02:38:44[22m [32m✓ Completed in 138ms.
+[39m
+[42m[30m generating optimized images [39m[49m
+[2m02:38:44[22m   [32m▶[39m /_astro/blog-placeholder-about.BtEdEmGp_1QX0ew.webp [2m(reused cache entry)[22m [2m(+1ms)[22m [2m(1/1)[22m
+[2m02:38:44[22m [32m✓ Completed in 2ms.
+[39m
+[2m02:38:44[22m [34m[@astrojs/sitemap][39m `sitemap-index.xml` created at `dist`
+[2m02:38:44[22m [34m[build][39m 49 page(s) built in [1m1.34s[22m
+[2m02:38:44[22m [34m[build][39m [1mComplete![22m
