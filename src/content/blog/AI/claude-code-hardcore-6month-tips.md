@@ -9,11 +9,11 @@ draft: false
 
 ## 인트로
 
-Reddit에서 흥미로운 글을 발견했다. 어떤 개발자가 Claude Code로 6개월간 **30만 LOC(Lines of Code)** 리팩토링에 성공한 경험담이었다. React 16 JS → React 19 TypeScript, Material UI v4 → MUI v7 등 대규모 마이그레이션을 **혼자서** 완수한 비결이 궁금했다.
+Reddit에서 흥미로운 글 발견. 어떤 개발자가 Claude Code로 6개월간 **30만 LOC(Lines of Code)** 리팩토링에 성공한 경험담. React 16 JS → React 19 TypeScript, Material UI v4 → MUI v7 등 대규모 마이그레이션을 **혼자서** 완수한 비결이 궁금.
 
 [Reddit 원문](https://www.reddit.com/r/ClaudeCode/comments/1oivs81/claude_code_is_a_beast_tips_from_6_months_of/) | [GitHub](https://github.com/diet103/claude-code-infrastructure-showcase)
 
-이 글에서는 Reddit 유저(diet103)의 핵심 팁과 내 개발 환경 설정을 통합하여 실전에 바로 적용할 수 있는 노하우를 정리한다.
+이 글에서는 Reddit 유저(diet103)의 핵심 팁과 내 개발 환경 설정을 통합하여 실전에 바로 적용할 수 있는 노하우를 정리.
 
 ## 핵심 인사이트
 
@@ -333,9 +333,9 @@ Discussion을 위한 agent를 따로 두고 메인 에이전트에서 plan 실�
 
 ### 핵심 요약
 
-Reddit 유저는 TypeScript 훅으로 스킬 자동 활성화 시스템을 구축하고, 개발 문서 워크플로우를 만들고, PM2 + 자동 오류 검사를 구현했다. 결과: **6개월 만에 일관된 품질로 30만 LOC를 혼자서 리라이팅**
+Reddit 유저는 TypeScript 훅으로 스킬 자동 활성화 시스템을 구축하고, 개발 문서 워크플로우를 만들고, PM2 + 자동 오류 검사 구현. 결과: **6개월 만에 일관된 품질로 30만 LOC를 혼자서 리라이팅**
 
-나는 Hook System으로 위험 명령어 차단과 품질 관리를 자동화하고, Serena MCP + LSP로 토큰을 절감하고, SPEC/TODO 문서 중심 개발로 계획 단계를 강화했다.
+나는 Hook System으로 위험 명령어 차단과 품질 관리를 자동화하고, Serena MCP + LSP로 토큰 절감, SPEC/TODO 문서 중심 개발로 계획 단계 강화.
 
 공통점: **계획 단계 강화 + 스킬/훅 조합 + 토큰 최적화 + 자동화**
 
